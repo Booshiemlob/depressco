@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5616241791372163215}
   - component: {fileID: 5616241791372163214}
-  - component: {fileID: 8926688065777496801}
   - component: {fileID: 6003176976675123333}
   - component: {fileID: 1617104832}
+  - component: {fileID: 1282785394}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -83,21 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8926688065777496801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5616241791372163209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4743ba1e0a703f14b95cd3d1915cbdf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 6003176976675123333}
-  player: {fileID: 5616241791372163209}
-  enemy: []
 --- !u!50 &6003176976675123333
 Rigidbody2D:
   serializedVersion: 4
@@ -169,3 +154,25 @@ PolygonCollider2D:
       - {x: 0.08591583, y: -0.2552105}
       - {x: 0.08781579, y: -0.18527895}
       - {x: 0.050626233, y: -0.123515725}
+--- !u!114 &1282785394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5616241791372163209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417f9bbf5b4054b4985847252c2e7dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 6003176976675123333}
+  player: {fileID: 5616241791372163209}
+  enemy: []
+  forwardSpeed: 30
+  bullets:
+  - {fileID: 2663357206781495304, guid: 30d83111dfa2d55418d7cfb4de0fe682, type: 3}
+  bullet: {fileID: 2663357206781495305, guid: 30d83111dfa2d55418d7cfb4de0fe682, type: 3}
+  weapon: 0
+  reload: 0
+  reloadTime: []
