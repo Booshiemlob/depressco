@@ -11,10 +11,17 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        rb.velocity = transform.up * speed;
+        Invoke("fuckyou", 5);
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        
+        Destroy(gameObject);
+    }
+
+    void fuckyou()
     {
         Destroy(gameObject);
     }

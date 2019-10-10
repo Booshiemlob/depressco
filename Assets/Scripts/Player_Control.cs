@@ -13,6 +13,9 @@ public class Player_Control : MonoBehaviour
     public int weapon; //Determines which bullet is fired and the fire rate
     public bool reload;
     public List<float> reloadTime;
+    public Transform firePoint1;
+    public Transform firePoint2;
+    public Transform firePoint3;
 
     // Start is called before the first frame update
     void Start()
@@ -68,11 +71,23 @@ public class Player_Control : MonoBehaviour
     }
     void fire()
     {
+        if(weapon==1)
+        {
+            //Spawns a bullet
+            GameObject clon = (GameObject)Instantiate(bullets[weapon], firePoint1.position, firePoint1.rotation);
+            GameObject fuck = (GameObject)Instantiate(bullets[weapon], firePoint2.position, firePoint2.rotation);
+            GameObject you = (GameObject)Instantiate(bullets[weapon], firePoint3.position, firePoint3.rotation);
+            reload = false;
+            //Determines the firerate of the player depending on the weapon
+            Invoke("recharge", reloadTime[weapon]);
+
+        }
         //Spawns a bullet
-        GameObject clone = (GameObject)Instantiate(bullets[weapon], bullet.position, Quaternion.identity);
+        GameObject clone = (GameObject)Instantiate(bullets[weapon], firePoint1.position, firePoint1.rotation);
         reload = false;
         //Determines the firerate of the player depending on the weapon
         Invoke("recharge", reloadTime[weapon]);
+       
     }
 
     void recharge()
