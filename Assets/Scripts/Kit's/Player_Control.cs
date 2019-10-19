@@ -16,12 +16,13 @@ public class Player_Control : MonoBehaviour
     public Transform firePoint1;
     public Transform firePoint2;
     public Transform firePoint3;
+    public Transform LaserEnd;
 
     // Start is called before the first frame update
     void Start()
     {
        rb = GetComponent<Rigidbody2D>();
-       reload = true;
+      // reload = true;
         
     }
 
@@ -30,7 +31,7 @@ public class Player_Control : MonoBehaviour
     {
         Movement();
 
-        fireDelay();
+        //fireDelay();
     }
     void Movement()
     {
@@ -65,13 +66,13 @@ public class Player_Control : MonoBehaviour
             rb.AddForce(transform.up * -2);
         }
     }
-    void fire()
+   /* void fire()
     {
         if(weapon==1)
         {
             //Spawns a bullet
             GameObject clon = (GameObject)Instantiate(bullets[weapon], firePoint1.position, firePoint1.rotation);
-            GameObject fuck = (GameObject)Instantiate(bullets[weapon], firePoint2.position, firePoint2.rotation);
+            GameObject dank = (GameObject)Instantiate(bullets[weapon], firePoint2.position, firePoint2.rotation);
             GameObject you = (GameObject)Instantiate(bullets[weapon], firePoint3.position, firePoint3.rotation);
             reload = false;
             //Determines the firerate of the player depending on the weapon
@@ -106,6 +107,6 @@ public class Player_Control : MonoBehaviour
 
         }
         
-    }
+    }*/
 
     }
