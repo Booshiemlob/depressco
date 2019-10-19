@@ -96,7 +96,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -116,9 +116,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63a7c899a98f6440abf69a6ae639d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
   player: {fileID: 0}
-  enemy: {fileID: 0}
-  plane: {fileID: 0}
+  firePoint: {fileID: 0}
+  moveSpeed: 5
+  stoppingDistance: 4
+  retreatDistance: 3
+  startTimeBtwShots: 2
 --- !u!1 &6059467945316922149
 GameObject:
   m_ObjectHideFlags: 0

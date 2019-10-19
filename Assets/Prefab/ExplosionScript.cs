@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ExplosionScript : MonoBehaviour
 {
-    int size = 1;
+    float size = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("explosion", 0, 0.05f);
+        InvokeRepeating("explosion", 0, 0.075f);
     }
 
     // Update is called once per frame
@@ -19,8 +19,8 @@ public class ExplosionScript : MonoBehaviour
     void explosion()
     {
         transform.localScale += new Vector3(size, size, size);
-        size += 1;
-        if (size >= 10)
+        size += 0.1f;
+        if (size >= 0.5f)
         {
             Destroy(gameObject);
         }
