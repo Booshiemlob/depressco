@@ -5,9 +5,11 @@ using UnityEngine;
 public class Weapons_Systems : MonoBehaviour
 {
     public Transform firePoint;
+    public Transform enemypoint;
     public GameObject bulletPrefab;
     public GameObject MissilePrefab;
     LineRenderer LaserBeam;
+    LineRenderer Syphon;
     public int WeaponSelected;
 
     public Transform LaserEndPoint;
@@ -18,7 +20,7 @@ public class Weapons_Systems : MonoBehaviour
         {
             WeaponSelected += 1;
 
-            if (WeaponSelected >= 4)
+            if (WeaponSelected >= 5)
             {
                 WeaponSelected = 0;
             }
@@ -58,16 +60,28 @@ public class Weapons_Systems : MonoBehaviour
                 ShootShotGun();
             }
         }
+        if (WeaponSelected == 4)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                energySyphon();
+            }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                Syphon.SetPosition(0, enemypoint.position);
+                Syphon.SetPosition(1, enemypoint.position);
+            }
+        }
 
         var Rot = firePoint.rotation;
     }
-
+    //Regular shooting
     void ShootBullet()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
  
     }
-
+    //Laser Shooting
     void LaserBeamShoot()
     {
         LaserBeam = GetComponent<LineRenderer>();
@@ -75,11 +89,19 @@ public class Weapons_Systems : MonoBehaviour
         LaserBeam.SetPosition(1, LaserEndPoint.position);
     }
 
+    void energySyphon()
+    {
+        Syphon = GetComponent<LineRenderer>();
+        Syphon.SetPosition(0, firePoint.position);
+        Syphon.SetPosition(1, enemypoint.position);
+    }
+    //Missile Shooting
     void ShootMissile()
     {
         Instantiate(MissilePrefab, firePoint.position,firePoint.rotation);
 
     }
+    //Shotgun Shooting
     void ShootShotGun()
     {
         /*
