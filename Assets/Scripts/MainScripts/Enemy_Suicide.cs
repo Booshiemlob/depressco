@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Enemy_Suicide : MonoBehaviour
 {
+    public GameObject ExplosionBP;
+    public Transform here;
     public Transform player;
     private Rigidbody2D rb;
     private Vector2 movement;
     public float moveSpeed = 5f;
     public float stoppingDistance;
     public float retreatDistance;
+    
 
 
 
@@ -49,5 +52,15 @@ public class Enemy_Suicide : MonoBehaviour
         var dir = player.position - transform.position;
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + addAngle;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    private void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        if (hitInfo.CompareTag("Player Bullets"))
+        {
+            //Destroys the ship and explodes.
+            Destroy(gameObject);
+            GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+        }
     }
 }

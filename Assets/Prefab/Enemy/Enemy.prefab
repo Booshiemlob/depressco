@@ -117,9 +117,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63a7c899a98f6440abf69a6ae639d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExplosionBP: {fileID: 6470858243705071207, guid: 1959437a21a6043429d209258c01564b,
+    type: 3}
   projectile: {fileID: 0}
+  here: {fileID: 6977143083809205588}
   player: {fileID: 0}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 5139092400052873758}
   moveSpeed: 5
   stoppingDistance: 4
   retreatDistance: 3

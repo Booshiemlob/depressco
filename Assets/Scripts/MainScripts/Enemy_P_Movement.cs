@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Enemy_P_Movement : MonoBehaviour
 {
+    public GameObject ExplosionBP;
     public GameObject projectile;
+    public Transform here;
     public Transform player;
     public Transform firePoint;
     private Rigidbody2D rb;
@@ -57,7 +59,7 @@ public class Enemy_P_Movement : MonoBehaviour
         if(timeBtwShots <= 0)
         {
             //Fires a bullet and starts a countdown
-            //Instantiate(projectile, firePoint.position , firePoint.rotation);
+            Instantiate(projectile, firePoint.position , firePoint.rotation);
             timeBtwShots = startTimeBtwShots;
         }
         else
@@ -74,11 +76,17 @@ public class Enemy_P_Movement : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if(collision.gameObject.tag == "Player Bullets")
-            {
-                Destroy(this);
-            }
+        if (hitInfo.CompareTag("Player Bullets"))
+        {
+            Destroy(gameObject);
+            GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+        }
+        if (hitInfo.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+        }
     }
 }
