@@ -43,7 +43,7 @@ public class Player_Control : MonoBehaviour
         //Reverts the player speed to normal when LeftShift is let go
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            forwardSpeed = 15f;
+            forwardSpeed = 30f;
         }
         //Turns the player left
             if (Input.GetKey(KeyCode.A))
@@ -59,6 +59,7 @@ public class Player_Control : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             rb.AddForce(transform.up * forwardSpeed);
+            Debug.Log(rb.velocity);
         }
         //Moves the player back
         if (Input.GetKey(KeyCode.S))

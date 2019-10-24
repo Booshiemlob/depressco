@@ -5,12 +5,15 @@ using UnityEngine;
 public class Weapons_Systems : MonoBehaviour
 {
     public Transform firePoint;
+    public Transform firePoint1;
+    public Transform firePoint2;
     public Transform enemypoint;
     public GameObject bulletPrefab;
     public GameObject MissilePrefab;
     LineRenderer LaserBeam;
     LineRenderer Syphon;
     public int WeaponSelected;
+    public GameObject[] enemy;
 
     public Transform LaserEndPoint;
     // Update is called once per frame
@@ -104,12 +107,8 @@ public class Weapons_Systems : MonoBehaviour
     //Shotgun Shooting
     void ShootShotGun()
     {
-        /*
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, Random.Range(45, -45)));
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, Random.Range(45, -45)));
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, Random.Range(45, -45)));
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, Random.Range(45, -45)));
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, Random.Range(45, -45)));
-        */
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
+        Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
     }
 }

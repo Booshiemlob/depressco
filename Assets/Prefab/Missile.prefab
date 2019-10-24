@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 2510490387498040774}
   - component: {fileID: 2510490387498040773}
   - component: {fileID: -4047902531521524985}
+  - component: {fileID: -111271875871830099}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -146,8 +147,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c16758e2ed4c642a0c1a9ec6843fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 2.5
   rb: {fileID: 2510490387498040773}
   ExplosionBP: {fileID: 6470858243705071207, guid: 1959437a21a6043429d209258c01564b,
     type: 3}
   missileob: {fileID: 2510490387498040771}
+--- !u!58 &-111271875871830099
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510490387498040770}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1

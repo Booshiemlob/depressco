@@ -8,18 +8,25 @@ public class missile : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject ExplosionBP;
     public Transform missileob;
+    public GameObject[] enemy;
     // Start is called before the first frame update
     void Start()
     {
         rb.velocity = transform.up * speed;
-        Invoke("Shoot", 3);
+        Invoke("Shoot", 5);
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        if(hitInfo.CompareTag("Enemy"))
+        {
+            Shoot();
+            Debug.Log("ne");
+        }
+        Debug.Log("ye");
 
-        Destroy(gameObject);
-        Explosion();
     }
 
     void Shoot()
