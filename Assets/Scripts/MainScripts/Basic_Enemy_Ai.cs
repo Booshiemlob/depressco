@@ -16,7 +16,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
     public float retreatDistance;
     private float timeBtwShots;
     public float startTimeBtwShots;
-    private SpawningScript spawnsc;
+    public SpawningScript spawnsc;
     public bool dead = false;
 
 
@@ -76,6 +76,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
     }
     void LookAt()
     {
+        //Looks at player.
         var addAngle = 270;
         var dir = player.position - transform.position;
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + addAngle;
@@ -84,23 +85,28 @@ public class Basic_Enemy_Ai : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        //Checks if it was hit by a player bullet.
         if (hitInfo.CompareTag("Player Bullets"))
         {
 
             if (dead == false)
             {
+                //Destroys the enemy, spawns an explosion and notifies the enemy spawner.
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
-                spawnsc.enemyCount--;
+           
                 Debug.Log(spawnsc.enemyCount);
                 dead = true;
                 Debug.Log(dead);
+                spawnsc.enemyCount--;
                 Destroy(gameObject);
             }
         }
+        //Checks if it collided with the player.
         if (hitInfo.CompareTag("Player"))
         {
             if (dead == false)
             {
+                //Destroys the enemy, spawns an explosion and notifies the enemy spawner. 
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
                 spawnsc.enemyCount--;
                 Debug.Log(spawnsc.enemyCount);
