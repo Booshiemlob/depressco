@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_P_Movement : MonoBehaviour
+public class Basic_Enemy_Ai : MonoBehaviour
 {
     public GameObject ExplosionBP;
     public GameObject projectile;
@@ -93,6 +93,7 @@ public class Enemy_P_Movement : MonoBehaviour
                 spawnsc.enemyCount--;
                 Debug.Log(spawnsc.enemyCount);
                 dead = true;
+                Debug.Log(dead);
                 Destroy(gameObject);
             }
         }
@@ -104,6 +105,7 @@ public class Enemy_P_Movement : MonoBehaviour
                 spawnsc.enemyCount--;
                 Debug.Log(spawnsc.enemyCount);
                 dead = true;
+                Debug.Log(dead);
                 Destroy(gameObject);
             }
         }

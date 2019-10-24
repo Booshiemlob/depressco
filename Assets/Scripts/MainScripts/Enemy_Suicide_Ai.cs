@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Suicide : MonoBehaviour
+public class Enemy_Suicide_Ai : MonoBehaviour
 {
     public GameObject ExplosionBP;
     public Transform here;
