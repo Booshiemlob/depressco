@@ -10,8 +10,7 @@ public class Weapons_Systems : MonoBehaviour
     public Transform enemypoint;
     public GameObject bulletPrefab;
     public GameObject MissilePrefab;
-    LineRenderer LaserBeam;
-    LineRenderer Syphon;
+    public GameObject LaserPrefab;
     public int WeaponSelected;
     public GameObject[] enemy;
 
@@ -43,11 +42,6 @@ public class Weapons_Systems : MonoBehaviour
             {
                 LaserBeamShoot();
             }
-            if (Input.GetButtonUp("Fire1"))
-            {
-                LaserBeam.SetPosition(0, LaserEndPoint.position);
-                LaserBeam.SetPosition(1, LaserEndPoint.position);
-            }
         }
         if (WeaponSelected == 2)
         {
@@ -65,14 +59,9 @@ public class Weapons_Systems : MonoBehaviour
         }
         if (WeaponSelected == 4)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButton("Fire1"))
             {
                 energySyphon();
-            }
-            if (Input.GetButtonUp("Fire1"))
-            {
-                Syphon.SetPosition(0, enemypoint.position);
-                Syphon.SetPosition(1, enemypoint.position);
             }
         }
 
@@ -87,16 +76,12 @@ public class Weapons_Systems : MonoBehaviour
     //Laser Shooting
     void LaserBeamShoot()
     {
-        LaserBeam = GetComponent<LineRenderer>();
-        LaserBeam.SetPosition(0, firePoint.position);
-        LaserBeam.SetPosition(1, LaserEndPoint.position);
+        Instantiate(LaserPrefab, firePoint.position, firePoint.rotation);
     }
 
     void energySyphon()
     {
-        Syphon = GetComponent<LineRenderer>();
-        Syphon.SetPosition(0, firePoint.position);
-        Syphon.SetPosition(1, enemypoint.position);
+
     }
     //Missile Shooting
     void ShootMissile()

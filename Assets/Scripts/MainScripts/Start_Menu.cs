@@ -16,6 +16,6 @@ public class Start_Menu : MonoBehaviour
     }
     void Button()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(1);
     }
 }
