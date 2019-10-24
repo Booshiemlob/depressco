@@ -28,6 +28,7 @@ public class Player_Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Movement();
         if (life < 1 && isDead == false){
             isDead = true;
             lifeCheck();
@@ -73,7 +74,7 @@ public class Player_Control : MonoBehaviour
     {
         if (hitInfo.CompareTag("Enemy")||hitInfo.CompareTag("Enemy Bullets"))
         {
-            //Destroys the ship and explodes
+            //Minuses one HP
             life--;
 
         }
