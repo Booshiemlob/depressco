@@ -1,22 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Control : MonoBehaviour
 {
     public Rigidbody2D rb;
     public GameObject player;
-    public GameObject[] enemy;
     public float forwardSpeed = 30f;
     public GameObject[] bullets;
     public Transform bullet;
-    public int weapon; //Determines which bullet is fired and the fire rate
     public bool reload;
     public List<float> reloadTime;
-    public Transform firePoint1;
-    public Transform firePoint2;
-    public Transform firePoint3;
-    public Transform LaserEnd;
+    public GameObject ExplosionBP;
+    public Transform here;
+    public float life = 1.0f;
+    public bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +29,10 @@ public class Player_Control : MonoBehaviour
     void Update()
     {
         Movement();
-
-        //fireDelay();
+        if (life < 1 && isDead == false){
+            isDead = true;
+            lifeCheck();
+        }
     }
     void Movement()
     {
@@ -66,48 +67,29 @@ public class Player_Control : MonoBehaviour
         {
             rb.AddForce(transform.up * -2);
         }
+
     }
-   /* void fire()
+
+    private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if(weapon==1)
+        if (hitInfo.CompareTag("Enemy")||hitInfo.CompareTag("Enemy Bullets"))
         {
-            //Spawns a bullet
-            GameObject clon = (GameObject)Instantiate(bullets[weapon], firePoint1.position, firePoint1.rotation);
-            GameObject dank = (GameObject)Instantiate(bullets[weapon], firePoint2.position, firePoint2.rotation);
-            GameObject you = (GameObject)Instantiate(bullets[weapon], firePoint3.position, firePoint3.rotation);
-            reload = false;
-            //Determines the firerate of the player depending on the weapon
-            Invoke("recharge", reloadTime[weapon]);
+            //Minuses one HP
+            life--;
 
         }
-        //Spawns a bullet
-        GameObject clone = (GameObject)Instantiate(bullets[weapon], firePoint1.position, firePoint1.rotation);
-        reload = false;
-        //Determines the firerate of the player depending on the weapon
-        Invoke("recharge", reloadTime[weapon]);
-       
     }
-
-    void recharge()
+    void Loadd()
     {
-        //Sets the bool to allow the player to fire again
-        reload = true;
+        SceneManager.LoadScene(0);
+        SceneManager.UnloadSceneAsync(1);
     }
-    void fireDelay()
+    
+    void lifeCheck()
     {
-        //if space is pressed fires a bullet, if held down continuously fires a bullet
-        if (Input.GetKeyDown(KeyCode.Space) && reload == true)
-        {
-            InvokeRepeating("fire", 0, 0.5f);     
-
-        }       
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            //Stops the player from shooting
-            CancelInvoke("fire");
-
-        }
-        
-    }*/
-
+        GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+        gameObject.SetActive(false);
+        Invoke ("Loadd", 3);
     }
+}
+

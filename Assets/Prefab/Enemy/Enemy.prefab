@@ -119,7 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionBP: {fileID: 7243604375643202896, guid: d70fd3d023d6f0e41abecf1206c05146,
     type: 3}
-  projectile: {fileID: 0}
+  projectile: {fileID: 5788387675940245570, guid: ab3d9ba568aa84843915db07e4a078de,
+    type: 3}
   here: {fileID: 6977143083809205588}
   player: {fileID: 0}
   firePoint: {fileID: 5139092400052873758}
@@ -127,6 +128,7 @@ MonoBehaviour:
   stoppingDistance: 4
   retreatDistance: 3
   startTimeBtwShots: 2
+  dead: 0
 --- !u!61 &965585918
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -177,7 +179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6059467945316922149}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.001, y: 0.272, z: 0}
+  m_LocalPosition: {x: -0.001, y: 0.473, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6977143083809205588}

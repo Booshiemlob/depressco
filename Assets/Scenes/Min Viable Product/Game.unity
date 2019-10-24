@@ -3261,6 +3261,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8542390289589192307, guid: 2f9b1e8ae4cce29469f4a460352b2398,
+        type: 3}
+      propertyPath: ExplosionBP
+      value: 
+      objectReference: {fileID: 6470858243705071207, guid: 1959437a21a6043429d209258c01564b,
+        type: 3}
+    - target: {fileID: 8542390289589192307, guid: 2f9b1e8ae4cce29469f4a460352b2398,
+        type: 3}
+      propertyPath: here
+      value: 
+      objectReference: {fileID: 1639936664}
     - target: {fileID: 8542390289589192318, guid: 2f9b1e8ae4cce29469f4a460352b2398,
         type: 3}
       propertyPath: enemypoint
