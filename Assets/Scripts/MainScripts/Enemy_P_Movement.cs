@@ -16,6 +16,8 @@ public class Enemy_P_Movement : MonoBehaviour
     public float retreatDistance;
     private float timeBtwShots;
     public float startTimeBtwShots;
+    private SpawningScript spawnsc;
+    public bool dead = false;
 
 
     void Start()
@@ -23,6 +25,9 @@ public class Enemy_P_Movement : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player").transform;
         timeBtwShots = startTimeBtwShots;
+
+        spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
+     
     }
 
     void FixedUpdate()
@@ -81,13 +86,26 @@ public class Enemy_P_Movement : MonoBehaviour
     {
         if (hitInfo.CompareTag("Player Bullets"))
         {
-            Destroy(gameObject);
-            GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+
+            if (dead == false)
+            {
+                GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+                spawnsc.enemyCount--;
+                Debug.Log(spawnsc.enemyCount);
+                dead = true;
+                Destroy(gameObject);
+            }
         }
         if (hitInfo.CompareTag("Player"))
         {
-            Destroy(gameObject);
-            GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+            if (dead == false)
+            {
+                GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+                spawnsc.enemyCount--;
+                Debug.Log(spawnsc.enemyCount);
+                dead = true;
+                Destroy(gameObject);
+            }
         }
     }
 }
