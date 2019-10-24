@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 965585918}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   stoppingDistance: 4
   retreatDistance: 3
   startTimeBtwShots: 2
+  spawnsc: {fileID: 0}
   dead: 0
 --- !u!61 &965585918
 BoxCollider2D:

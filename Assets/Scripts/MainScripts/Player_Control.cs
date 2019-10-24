@@ -28,6 +28,7 @@ public class Player_Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Movement();
         if (life < 1 && isDead == false){
             isDead = true;
             lifeCheck();

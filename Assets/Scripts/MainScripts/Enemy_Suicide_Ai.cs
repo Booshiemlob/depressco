@@ -56,7 +56,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Player Bullets"))
+        if (hitInfo.CompareTag("Player") || hitInfo.CompareTag("Player Bullets"))
         {
             //Destroys the ship and explodes.
             Destroy(gameObject);

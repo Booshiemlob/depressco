@@ -8,7 +8,7 @@ public class Weapons_Systems : MonoBehaviour
     public Transform firePoint1;
     public Transform firePoint2;
     public Transform enemypoint;
-    public GameObject bulletPrefab;
+    public GameObject bullet;
     public GameObject MissilePrefab;
     public GameObject LaserPrefab;
     public int WeaponSelected;
@@ -70,7 +70,7 @@ public class Weapons_Systems : MonoBehaviour
     //Regular shooting
     void ShootBullet()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Instantiate(bullet, firePoint.position, firePoint.rotation);
  
     }
     //Laser Shooting
@@ -92,8 +92,8 @@ public class Weapons_Systems : MonoBehaviour
     //Shotgun Shooting
     void ShootShotGun()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
-        Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
+        Instantiate(bullet, firePoint.position, firePoint.rotation);
+        Instantiate(bullet, firePoint1.position, firePoint1.rotation);
+        Instantiate(bullet, firePoint2.position, firePoint2.rotation);
     }
 }
