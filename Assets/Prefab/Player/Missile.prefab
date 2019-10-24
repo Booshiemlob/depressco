@@ -152,6 +152,7 @@ MonoBehaviour:
   ExplosionBP: {fileID: 6470858243705071207, guid: 1959437a21a6043429d209258c01564b,
     type: 3}
   missileob: {fileID: 2510490387498040771}
+  enemy: []
 --- !u!58 &-111271875871830099
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
