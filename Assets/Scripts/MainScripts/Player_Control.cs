@@ -89,7 +89,7 @@ public class Player_Control : MonoBehaviour
     {
         GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
         gameObject.SetActive(false);
-        Invoke ("Loadd", 3);
+        Invoke ("Loadd", 1);
     }
 }
 

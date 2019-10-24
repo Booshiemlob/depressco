@@ -460,7 +460,7 @@ MonoBehaviour:
   firePoint1: {fileID: 8542390289227723029}
   firePoint2: {fileID: 8542390289254902664}
   enemypoint: {fileID: 0}
-  bullet: {fileID: 2366371526046583061, guid: 30d83111dfa2d55418d7cfb4de0fe682, type: 3}
+  bullet: {fileID: 2366371526046583061, guid: 7205372e70beae54e88744cf5d8cd697, type: 3}
   MissilePrefab: {fileID: 2510490387498040770, guid: fe72aea7cf3c0b744bd7f99eab051ed6,
     type: 3}
   LaserPrefab: {fileID: 0}
@@ -613,6 +613,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8542390289589192319}
     m_Modifications:
+    - target: {fileID: 6455232186738304020, guid: b822312a268f9dc4ba03850863337067,
+        type: 3}
+      propertyPath: m_Name
+      value: Line
+      objectReference: {fileID: 0}
     - target: {fileID: 1396712778881513542, guid: b822312a268f9dc4ba03850863337067,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -667,11 +672,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6455232186738304020, guid: b822312a268f9dc4ba03850863337067,
-        type: 3}
-      propertyPath: m_Name
-      value: Line
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b822312a268f9dc4ba03850863337067, type: 3}
