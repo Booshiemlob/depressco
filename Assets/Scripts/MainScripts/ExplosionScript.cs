@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ExplosionScript : MonoBehaviour
 {
+
     float size = 0.1f;
     // Start is called before the first frame update
     void Start()
