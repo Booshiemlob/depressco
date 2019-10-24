@@ -56,8 +56,9 @@ public class Enemy_P_Movement : MonoBehaviour
     {
         if(timeBtwShots <= 0)
         {
+            timeBtwShots = startTimeBtwShots;
             //Fires a bullet and starts a countdown
-            //Instantiate(projectile, firePoint.position , firePoint.rotation);
+            Instantiate(projectile, firePoint.position , firePoint.rotation);
             timeBtwShots = startTimeBtwShots;
         }
         else
