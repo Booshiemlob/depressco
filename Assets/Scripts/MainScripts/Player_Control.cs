@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Control : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class Player_Control : MonoBehaviour
     public Transform bullet;
     public bool reload;
     public List<float> reloadTime;
+    public GameObject ExplosionBP;
+    public Transform here;
+    public float life = 1.0f;
+    public bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +28,10 @@ public class Player_Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
-
-        //fireDelay();
+        if (life < 1 && isDead == false){
+            isDead = true;
+            lifeCheck();
+        }
     }
     void Movement()
     {
@@ -60,6 +66,29 @@ public class Player_Control : MonoBehaviour
         {
             rb.AddForce(transform.up * -2);
         }
-    }
 
     }
+
+    private void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        if (hitInfo.CompareTag("Enemy")||hitInfo.CompareTag("Enemy Bullets"))
+        {
+            //Destroys the ship and explodes
+            life--;
+
+        }
+    }
+    void Loadd()
+    {
+        SceneManager.LoadScene(0);
+        SceneManager.UnloadSceneAsync(1);
+    }
+    
+    void lifeCheck()
+    {
+        GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+        gameObject.SetActive(false);
+        Invoke ("Loadd", 3);
+    }
+}
+
