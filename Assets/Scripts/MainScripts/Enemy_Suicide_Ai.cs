@@ -12,7 +12,8 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     public float moveSpeed = 5f;
     public float stoppingDistance;
     public float retreatDistance;
-    
+    public SpawningScript spawnsc;
+    public bool dead = false;
 
 
 
@@ -20,6 +21,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player").transform;
+        spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
     }
 
     void FixedUpdate()
@@ -58,9 +60,16 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     {
         if (hitInfo.CompareTag("Player") || hitInfo.CompareTag("Player Bullets"))
         {
-            //Destroys the ship and explodes.
-            Destroy(gameObject);
-            GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+            if(dead == false)
+            {
+                //Destroys the ship and explodes, removing a count from the enemyCount.
+                //GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+                spawnsc.enemyCount--;
+                dead = true;
+                Destroy(gameObject);
+            }
+
+
         }
     }
 }

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class SpawningScript : MonoBehaviour
 {
-    public GameObject enemy;
+    public Transform[] spawner;
+    public GameObject[] enemy;
     public int enemyCount = 0;
+    public int randEnemy;
+    public int randSpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +29,12 @@ public class SpawningScript : MonoBehaviour
 
     }
 
-
-
-
     void spawnEnemies()
     {
-        Instantiate(enemy);
+        randEnemy = Random.Range(0, 2);
+        randSpawn = Random.Range(0, 8);
+        GameObject Clone = (GameObject)Instantiate(enemy[randEnemy], spawner[randSpawn].position, spawner[randSpawn].rotation);
         enemyCount++;
-        Debug.Log(enemyCount);
+        Debug.Log(randEnemy);
     }
 }

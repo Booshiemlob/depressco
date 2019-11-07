@@ -95,13 +95,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c06764560bfeec46a73ef359d1beef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionBP: {fileID: 6470858243705071207, guid: 1959437a21a6043429d209258c01564b,
+  ExplosionBP: {fileID: 7243604375643202896, guid: d70fd3d023d6f0e41abecf1206c05146,
     type: 3}
   here: {fileID: 3772217935416829466}
   player: {fileID: 0}
-  moveSpeed: 8
+  moveSpeed: 7
   stoppingDistance: 0
   retreatDistance: 0
+  spawnsc: {fileID: 0}
+  dead: 0
 --- !u!50 &5682713512756010179
 Rigidbody2D:
   serializedVersion: 4
