@@ -6,6 +6,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
 {
     public GameObject ExplosionBP;
     public GameObject projectile;
+    public GameObject[] PowerUps;
     public Transform here;
     public Transform player;
     public Transform firePoint;
@@ -96,15 +97,20 @@ public class Basic_Enemy_Ai : MonoBehaviour
 
                 //Destroys the enemy, spawns an explosion and notifies the enemy spawner.
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
-                Debug.Log(spawnsc.enemyCount);
                 dead = true;
-                Debug.Log(dead);
+                float a = Random.Range(0f, 1f);
+                if (a <= 0.3f)
+                {
+                    Instantiate(PowerUps[Random.Range(0, 5)], here.position, here.rotation);
+                }
+                Debug.Log(a);
+                Destroy(gameObject);
                 spawnsc.enemyCount--;
                 Destroy(gameObject);
             }
         }
         //Checks if it collided with the player.
-        if (hitInfo.CompareTag("Player"))
+        /*if (hitInfo.CompareTag("Player"))
         {
             score.UpScore();
             if (dead == false)
@@ -112,11 +118,14 @@ public class Basic_Enemy_Ai : MonoBehaviour
                 //Destroys the enemy, spawns an explosion and notifies the enemy spawner. 
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
                 spawnsc.enemyCount--;
-                Debug.Log(spawnsc.enemyCount);
                 dead = true;
-                Debug.Log(dead);
+                float a = Random.Range(0f, 1f);
+                if(a <= 0.3f)
+                {
+                    Instantiate(PowerUps[Random.Range(0, 5)], here.position, here.rotation);
+                }
                 Destroy(gameObject);
             }
-        }
+        }*/
     }
 }
