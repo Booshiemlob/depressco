@@ -12,7 +12,7 @@ public class BigText : MonoBehaviour
        gameObject.SetActive(false);
     }
 
-
+    //This displays the final score in big text 
     public void displayFinalScore(int finalScore)
     {
         gameObject.SetActive(true);

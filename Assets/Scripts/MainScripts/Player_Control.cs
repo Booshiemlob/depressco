@@ -19,6 +19,7 @@ public class Player_Control : MonoBehaviour
     public bool isDead = false;
     public BigText bigtext;
     public ScoreScript score;
+    public bool immortal = false;
 
     // Start is called before the first frame update
     void Start()
@@ -77,13 +78,14 @@ public class Player_Control : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Enemy")||hitInfo.CompareTag("Enemy Bullets"))
+        if (immortal == false)
         {
-            //Destroys the ship and explodes
-            life--;
-          
 
-
+            if (hitInfo.CompareTag("Enemy") || hitInfo.CompareTag("Enemy Bullets"))
+            {
+                //Destroys the ship and explodes
+                life--;
+            }
         }
     }
     void Loadd()
