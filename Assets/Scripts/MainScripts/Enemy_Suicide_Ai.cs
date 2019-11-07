@@ -60,6 +60,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 {
                     Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
                 }*/
+                //This adds 1 to the score
                 score.UpScore();
                 Destroy(gameObject);
             }
