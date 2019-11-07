@@ -35,6 +35,5 @@ public class SpawningScript : MonoBehaviour
         randSpawn = Random.Range(0, 8);
         GameObject Clone = (GameObject)Instantiate(enemy[randEnemy], spawner[randSpawn].position, spawner[randSpawn].rotation);
         enemyCount++;
-        Debug.Log(randEnemy);
     }
 }

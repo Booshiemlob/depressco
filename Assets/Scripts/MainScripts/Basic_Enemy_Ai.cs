@@ -98,6 +98,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
                 //Destroys the enemy, spawns an explosion and notifies the enemy spawner.
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
                 dead = true;
+                //Random chance to spawn a random weapon power up.
                 /*float a = Random.Range(0f, 1f);
                 if (a <= 0.3f)
                 {

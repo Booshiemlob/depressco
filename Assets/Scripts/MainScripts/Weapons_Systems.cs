@@ -11,7 +11,7 @@ public class Weapons_Systems : MonoBehaviour
     public GameObject MissilePrefab;
     public GameObject LaserPrefab;
     public int Primary = 0;
-    public int Secondary = 1;
+    public int Secondary = 0;
     public GameObject[] enemy;
 
     public Transform LaserEndPoint;
@@ -30,7 +30,7 @@ public class Weapons_Systems : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
-                ShootShotGun();
+                ShootTriGun();
             }
         }
         if (Primary == 2)
@@ -42,15 +42,14 @@ public class Weapons_Systems : MonoBehaviour
         }
         if(Secondary == 1)
         {
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButton("Fire2"))
             {
                 LaserBeamShoot();
-                Debug.Log("Lazer");
             }
         }
         if (Secondary == 2)
         {
-
+            ShootMissile();
         }
 
         var Rot = firePoint.rotation;
@@ -103,8 +102,8 @@ public class Weapons_Systems : MonoBehaviour
         Instantiate(MissilePrefab, firePoint.position,firePoint.rotation);
 
     }
-    //Shotgun Shooting
-    void ShootShotGun()
+    //Tri Shooting
+    void ShootTriGun()
     {
         Instantiate(bullet, firePoint.position, firePoint.rotation);
         Instantiate(bullet, firePoint1.position, firePoint1.rotation);
