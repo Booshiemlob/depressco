@@ -11,24 +11,15 @@ public class Weapons_Systems : MonoBehaviour
     public GameObject bullet;
     public GameObject MissilePrefab;
     public GameObject LaserPrefab;
-    public int WeaponSelected;
+    public int Primary = 0;
+    public int Secondary = 1;
     public GameObject[] enemy;
 
     public Transform LaserEndPoint;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            WeaponSelected += 1;
-
-            if (WeaponSelected >= 5)
-            {
-                WeaponSelected = 0;
-            }
-        }
-
-        if (WeaponSelected == 0)
+        if (Primary == 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -36,36 +27,60 @@ public class Weapons_Systems : MonoBehaviour
             }
 
         }
-        if (WeaponSelected == 1)
+        if (Primary == 1)
         {
             if (Input.GetButton("Fire1"))
             {
-                LaserBeamShoot();
+                ShootShotGun();
             }
         }
-        if (WeaponSelected == 2)
+        if (Primary == 2)
         {
             if (Input.GetButtonDown("Fire1"))
             {
                 ShootMissile();
             }
         }
-        if(WeaponSelected == 3)
+        if(Secondary == 1)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire2"))
             {
-                ShootShotGun();
+                LaserBeamShoot();
+                Debug.Log("Lazer");
             }
         }
-        if (WeaponSelected == 4)
+        if (Secondary == 2)
         {
-            if (Input.GetButton("Fire1"))
-            {
-                energySyphon();
-            }
+
         }
 
         var Rot = firePoint.rotation;
+    }
+
+    private void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        //Changes your primary/secondary weapon based on the power up the player picked up.
+        if (hitInfo.CompareTag("Weapon1"))
+        {
+            Primary = 1;
+        }
+        if (hitInfo.CompareTag("Weapon2"))
+        {
+            Primary = 2;
+        }
+        if (hitInfo.CompareTag("Weapon3"))
+        {
+            Primary = 3;
+        }
+        if (hitInfo.CompareTag("Weapon4"))
+        {
+            Secondary = 1;
+        }
+        if (hitInfo.CompareTag("Weapon5"))
+        {
+            Secondary = 2;
+        }
+
     }
     //Regular shooting
     void ShootBullet()
@@ -96,4 +111,6 @@ public class Weapons_Systems : MonoBehaviour
         Instantiate(bullet, firePoint1.position, firePoint1.rotation);
         Instantiate(bullet, firePoint2.position, firePoint2.rotation);
     }
+
+
 }
