@@ -11,11 +11,11 @@ public class Start_Menu : MonoBehaviour
     void OnEnable()
     {
         //Detects if a button is pressed and runs Start.
-        myButton.onClick.AddListener(Button);
+        myButton.onClick.AddListener(Start);
 
     }
-    void Button()
+    void Start()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Game");
     }
 }

@@ -1,38 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Player_Control : MonoBehaviour
 {
     public Rigidbody2D rb;
     public GameObject player;
+    public GameObject[] enemy;
     public float forwardSpeed = 30f;
     public GameObject[] bullets;
-    public GameObject ExplosionBP;
-    public Transform here;
-    public float life = 1.0f;
-    public bool isDead = false;
-    public BigText bigtext;
-    public ScoreScript score;
-    public bool immortal = false;
+    public Transform bullet;
+    public int weapon; //Determines which bullet is fired and the fire rate
+    public bool reload;
+    public List<float> reloadTime;
+    public Transform firePoint1;
+    public Transform firePoint2;
+    public Transform firePoint3;
+    public Transform LaserEnd;
 
     // Start is called before the first frame update
     void Start()
     {
        rb = GetComponent<Rigidbody2D>();
-       score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+      // reload = true;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
-        if (life < 1 && isDead == false){
-            isDead = true;
-            lifeCheck();
-        }
+
+        //fireDelay();
     }
     void Movement()
     {
@@ -44,7 +43,7 @@ public class Player_Control : MonoBehaviour
         //Reverts the player speed to normal when LeftShift is let go
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            forwardSpeed = 30f;
+            forwardSpeed = 15f;
         }
         //Turns the player left
             if (Input.GetKey(KeyCode.A))
@@ -60,43 +59,54 @@ public class Player_Control : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             rb.AddForce(transform.up * forwardSpeed);
-
         }
         //Moves the player back
         if (Input.GetKey(KeyCode.S))
         {
             rb.AddForce(transform.up * -2);
         }
-
     }
-
-    private void OnTriggerEnter2D(Collider2D hitInfo)
+   /* void fire()
     {
-        if (immortal == false)
+        if(weapon==1)
         {
+            //Spawns a bullet
+            GameObject clon = (GameObject)Instantiate(bullets[weapon], firePoint1.position, firePoint1.rotation);
+            GameObject dank = (GameObject)Instantiate(bullets[weapon], firePoint2.position, firePoint2.rotation);
+            GameObject you = (GameObject)Instantiate(bullets[weapon], firePoint3.position, firePoint3.rotation);
+            reload = false;
+            //Determines the firerate of the player depending on the weapon
+            Invoke("recharge", reloadTime[weapon]);
 
-            if (hitInfo.CompareTag("Enemy") || hitInfo.CompareTag("Enemy Bullets"))
-            {
-                //Destroys the ship and explodes
-                life--;
-            }
         }
+        //Spawns a bullet
+        GameObject clone = (GameObject)Instantiate(bullets[weapon], firePoint1.position, firePoint1.rotation);
+        reload = false;
+        //Determines the firerate of the player depending on the weapon
+        Invoke("recharge", reloadTime[weapon]);
+       
     }
-    void Loadd()
+
+    void recharge()
     {
-        SceneManager.LoadScene(0);
-        SceneManager.UnloadSceneAsync(1);
+        //Sets the bool to allow the player to fire again
+        reload = true;
     }
-
-    void lifeCheck()
+    void fireDelay()
     {
-        GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
-        gameObject.SetActive(false);
-        bigtext.displayFinalScore(score.scoreOfPlayer);
-        Invoke("Loadd", 5);
+        //if space is pressed fires a bullet, if held down continuously fires a bullet
+        if (Input.GetKeyDown(KeyCode.Space) && reload == true)
+        {
+            InvokeRepeating("fire", 0, 0.5f);     
+
+        }       
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            //Stops the player from shooting
+            CancelInvoke("fire");
+
+        }
+        
+    }*/
+
     }
-
-
-
-}
-
