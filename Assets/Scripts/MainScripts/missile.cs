@@ -23,9 +23,9 @@ public class missile : MonoBehaviour
         if(hitInfo.CompareTag("Enemy"))
         {
             Shoot();
-            Debug.Log("ne");
+
         }
-        Debug.Log("ye");
+
 
     }
 

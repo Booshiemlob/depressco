@@ -8,6 +8,11 @@ TagManager:
   - Player Bullets
   - Enemy Bullets
   - MissileWall
+  - Weapon1
+  - Weapon2
+  - Weapon3
+  - Weapon4
+  - Weapon5
   layers:
   - Default
   - TransparentFX
