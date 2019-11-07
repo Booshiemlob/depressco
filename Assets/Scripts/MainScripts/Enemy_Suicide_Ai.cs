@@ -26,6 +26,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player").transform;
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
+        //This finds the text for the score.
         score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
 
     }
