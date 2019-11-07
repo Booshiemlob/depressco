@@ -17,6 +17,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
     private float timeBtwShots;
     public float startTimeBtwShots;
     public SpawningScript spawnsc;
+    public ScoreScript score;
     public bool dead = false;
 
 
@@ -27,6 +28,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
         timeBtwShots = startTimeBtwShots;
 
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
+        score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
      
     }
 
@@ -88,12 +90,12 @@ public class Basic_Enemy_Ai : MonoBehaviour
         //Checks if it was hit by a player bullet.
         if (hitInfo.CompareTag("Player Bullets"))
         {
-
+            score.UpScore();
             if (dead == false)
             {
+
                 //Destroys the enemy, spawns an explosion and notifies the enemy spawner.
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
-           
                 Debug.Log(spawnsc.enemyCount);
                 dead = true;
                 Debug.Log(dead);
@@ -104,6 +106,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
         //Checks if it collided with the player.
         if (hitInfo.CompareTag("Player"))
         {
+            score.UpScore();
             if (dead == false)
             {
                 //Destroys the enemy, spawns an explosion and notifies the enemy spawner. 
