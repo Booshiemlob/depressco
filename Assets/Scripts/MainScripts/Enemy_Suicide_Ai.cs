@@ -10,9 +10,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     public Transform player;
     private Rigidbody2D rb;
     private Vector2 movement;
-    public float moveSpeed = 5f;
-    public float stoppingDistance;
-    public float retreatDistance;
+    public float moveSpeed = 7f;
     public float rand;
     public SpawningScript spawnsc;
     public ScoreScript score;
@@ -33,27 +31,10 @@ public class Enemy_Suicide_Ai : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
+        rb.AddForce(transform.up * moveSpeed * 2);
         LookAt();
     }
 
-    void Movement()
-    {
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
-        {
-            rb.AddForce(transform.up * moveSpeed * 2);
-        }
-        //If the enemy is too close to the player but not close enough to retreat, the enemy gain nor lose velocity.
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && (Vector2.Distance(transform.position, player.position) > retreatDistance))
-        {
-            transform.position = this.transform.position;
-        }
-        //If the enemy is too close to the player, the enemy will retreat.
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            rb.AddForce(transform.up * -moveSpeed);
-        }
-    }
     void LookAt()
     {
         //Looks at the player.
@@ -74,6 +55,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
                 spawnsc.enemyCount--;
                 dead = true;
+                //Random chance to spawn a random weapon power up.
                 /*rand = Random.Range(0f, 1f);
                 if (rand >= 0f)
                 {

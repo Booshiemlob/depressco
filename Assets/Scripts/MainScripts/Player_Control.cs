@@ -10,9 +10,6 @@ public class Player_Control : MonoBehaviour
     public GameObject player;
     public float forwardSpeed = 30f;
     public GameObject[] bullets;
-    public Transform bullet;
-    public bool reload;
-    public List<float> reloadTime;
     public GameObject ExplosionBP;
     public Transform here;
     public float life = 1.0f;
