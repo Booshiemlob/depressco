@@ -7,7 +7,6 @@ public class Weapons_Systems : MonoBehaviour
     public Transform firePoint;
     public Transform firePoint1;
     public Transform firePoint2;
-    public Transform enemypoint;
     public GameObject bullet;
     public GameObject MissilePrefab;
     public GameObject LaserPrefab;

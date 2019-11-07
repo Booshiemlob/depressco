@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player_Control : MonoBehaviour
 {
@@ -16,13 +17,17 @@ public class Player_Control : MonoBehaviour
     public Transform here;
     public float life = 1.0f;
     public bool isDead = false;
+    public BigText bigtext;
+    public BigText bigtext2;
 
     // Start is called before the first frame update
     void Start()
     {
        rb = GetComponent<Rigidbody2D>();
-      // reload = true;
-        
+      
+        // reload = true;
+
+
     }
 
     // Update is called once per frame
@@ -76,6 +81,8 @@ public class Player_Control : MonoBehaviour
         {
             //Destroys the ship and explodes
             life--;
+          
+
 
         }
     }
@@ -84,12 +91,17 @@ public class Player_Control : MonoBehaviour
         SceneManager.LoadScene(0);
         SceneManager.UnloadSceneAsync(1);
     }
-    
+
     void lifeCheck()
     {
         GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
         gameObject.SetActive(false);
-        Invoke ("Loadd", 1);
+        bigtext.biggerOnScreen();
+        bigtext2.biggerOnScreen();
+        Invoke("Loadd", 5);
     }
+
+
+
 }
 

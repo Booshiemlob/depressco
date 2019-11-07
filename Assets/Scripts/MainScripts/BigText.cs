@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreScript : MonoBehaviour
+public class BigText : MonoBehaviour
 {
-    public int scoreOfPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
-       
+       gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.GetComponent<Text>().text="Score:" + scoreOfPlayer;
+        
     }
 
-    public void UpScore()
+    public void biggerOnScreen()
     {
-        scoreOfPlayer = scoreOfPlayer + 1;
+        gameObject.SetActive(true);
     }
 }
