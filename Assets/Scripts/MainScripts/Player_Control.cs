@@ -18,7 +18,7 @@ public class Player_Control : MonoBehaviour
     public float life = 1.0f;
     public bool isDead = false;
     public BigText bigtext;
-    public BigText bigtext2;
+    public ScoreScript score;
 
     // Start is called before the first frame update
     void Start()
@@ -96,8 +96,7 @@ public class Player_Control : MonoBehaviour
     {
         GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
         gameObject.SetActive(false);
-        bigtext.biggerOnScreen();
-        bigtext2.biggerOnScreen();
+        bigtext.displayFinalScore(score.scoreOfPlayer);
         Invoke("Loadd", 5);
     }
 

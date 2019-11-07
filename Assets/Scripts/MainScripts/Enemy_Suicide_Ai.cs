@@ -16,8 +16,8 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     public float rand;
     public SpawningScript spawnsc;
     public ScoreScript score;
+
     public bool dead = false;
-    public ScoreScript score;
 
 
 
@@ -27,6 +27,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
         score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+
     }
 
     void FixedUpdate()
@@ -65,23 +66,23 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     {
         if (hitInfo.CompareTag("Player") || hitInfo.CompareTag("Player Bullets"))
         {
-            score.UpScore();
+            
             if (dead == false)
             {
                 //Destroys the ship and explodes, removing a count from the enemyCount.
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
                 spawnsc.enemyCount--;
                 dead = true;
-                rand = Random.Range(0f, 1f);
+                /*rand = Random.Range(0f, 1f);
                 if (rand >= 0f)
                 {
                     Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
-                }
-                Debug.Log(rand);
+                }*/
+                score.UpScore();
                 Destroy(gameObject);
             }
 
 
         }
-    }
+    }   
 }

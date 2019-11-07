@@ -91,41 +91,23 @@ public class Basic_Enemy_Ai : MonoBehaviour
         //Checks if it was hit by a player bullet.
         if (hitInfo.CompareTag("Player Bullets"))
         {
-            score.UpScore();
+            
             if (dead == false)
             {
 
                 //Destroys the enemy, spawns an explosion and notifies the enemy spawner.
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
                 dead = true;
-                float a = Random.Range(0f, 1f);
+                /*float a = Random.Range(0f, 1f);
                 if (a <= 0.3f)
                 {
-                    Instantiate(PowerUps[Random.Range(0, 5)], here.position, here.rotation);
-                }
-                Debug.Log(a);
-                Destroy(gameObject);
+                    Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
+                }*/
                 spawnsc.enemyCount--;
+                score.UpScore();
                 Destroy(gameObject);
             }
         }
-        //Checks if it collided with the player.
-        /*if (hitInfo.CompareTag("Player"))
-        {
-            score.UpScore();
-            if (dead == false)
-            {
-                //Destroys the enemy, spawns an explosion and notifies the enemy spawner. 
-                GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
-                spawnsc.enemyCount--;
-                dead = true;
-                float a = Random.Range(0f, 1f);
-                if(a <= 0.3f)
-                {
-                    Instantiate(PowerUps[Random.Range(0, 5)], here.position, here.rotation);
-                }
-                Destroy(gameObject);
-            }
-        }*/
+
     }
 }

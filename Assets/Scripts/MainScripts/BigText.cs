@@ -5,21 +5,17 @@ using UnityEngine.UI;
 
 public class BigText : MonoBehaviour
 {
-
+    //public int finalScore;
     // Start is called before the first frame update
     void Start()
     {
        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public void biggerOnScreen()
+    public void displayFinalScore(int finalScore)
     {
         gameObject.SetActive(true);
+        this.GetComponent<Text>().text = "Score:" + finalScore;
     }
 }
