@@ -16,6 +16,6 @@ public class BigText : MonoBehaviour
     public void displayFinalScore(int finalScore)
     {
         gameObject.SetActive(true);
-        this.GetComponent<Text>().text = "Score:" + finalScore;
+        this.GetComponent<Text>().text = "   Score:" + finalScore + "\r\nGame Over";
     }
 }
