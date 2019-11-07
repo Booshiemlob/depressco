@@ -15,7 +15,7 @@ public class ScoreScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.GetComponent<Text>().text = "Score:" + scoreOfPlayer;
+        this.GetComponent<Text>().text="Score:" + scoreOfPlayer;
     }
 
     public void UpScore()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6745418645874341950}
   - component: {fileID: 7999763653786534995}
   - component: {fileID: 3348000348916290156}
-  - component: {fileID: 7149216152790487181}
+  - component: {fileID: 8661120803069812146}
   m_Layer: 5
   m_Name: gameovertext
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Game Over
---- !u!114 &7149216152790487181
+--- !u!114 &8661120803069812146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,7 +89,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6158187487897224359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a785836ba5c28d0468eea9f1184762a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 20194b5476f888b40a36080b15d5c864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pcon1: {fileID: 0}
