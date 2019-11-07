@@ -60,7 +60,7 @@ public class Player_Control : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             rb.AddForce(transform.up * forwardSpeed);
-            Debug.Log(rb.velocity);
+
         }
         //Moves the player back
         if (Input.GetKey(KeyCode.S))
