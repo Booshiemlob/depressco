@@ -5,28 +5,20 @@ using UnityEngine;
 public class Weapons_Systems : MonoBehaviour
 {
     public Transform firePoint;
-    public Transform enemypoint;
-    public GameObject bulletPrefab;
+    public Transform firePoint1;
+    public Transform firePoint2;
+    public GameObject bullet;
     public GameObject MissilePrefab;
-    LineRenderer LaserBeam;
-    LineRenderer Syphon;
-    public int WeaponSelected;
+    public GameObject LaserPrefab;
+    public int Primary = 0;
+    public int Secondary = 0;
+    public GameObject[] enemy;
 
     public Transform LaserEndPoint;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            WeaponSelected += 1;
-
-            if (WeaponSelected >= 5)
-            {
-                WeaponSelected = 0;
-            }
-        }
-
-        if (WeaponSelected == 0)
+        if (Primary == 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -34,66 +26,75 @@ public class Weapons_Systems : MonoBehaviour
             }
 
         }
-        if (WeaponSelected == 1)
+        if (Primary == 1)
         {
             if (Input.GetButton("Fire1"))
             {
-                LaserBeamShoot();
-            }
-            if (Input.GetButtonUp("Fire1"))
-            {
-                LaserBeam.SetPosition(0, LaserEndPoint.position);
-                LaserBeam.SetPosition(1, LaserEndPoint.position);
+                ShootTriGun();
             }
         }
-        if (WeaponSelected == 2)
+        if (Primary == 2)
         {
             if (Input.GetButtonDown("Fire1"))
             {
                 ShootMissile();
             }
         }
-        if(WeaponSelected == 3)
+        if(Secondary == 1)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButton("Fire2"))
             {
-                ShootShotGun();
+                LaserBeamShoot();
             }
         }
-        if (WeaponSelected == 4)
+        if (Secondary == 2)
         {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                energySyphon();
-            }
-            if (Input.GetButtonUp("Fire1"))
-            {
-                Syphon.SetPosition(0, enemypoint.position);
-                Syphon.SetPosition(1, enemypoint.position);
-            }
+            ShootMissile();
         }
 
         var Rot = firePoint.rotation;
     }
+
+    private void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        //Changes your primary/secondary weapon based on the power up the player picked up.
+        if (hitInfo.CompareTag("Weapon1"))
+        {
+            Primary = 1;
+        }
+        if (hitInfo.CompareTag("Weapon2"))
+        {
+            Primary = 2;
+        }
+        if (hitInfo.CompareTag("Weapon3"))
+        {
+            Primary = 3;
+        }
+        if (hitInfo.CompareTag("Weapon4"))
+        {
+            Secondary = 1;
+        }
+        if (hitInfo.CompareTag("Weapon5"))
+        {
+            Secondary = 2;
+        }
+
+    }
     //Regular shooting
     void ShootBullet()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Instantiate(bullet, firePoint.position, firePoint.rotation);
  
     }
     //Laser Shooting
     void LaserBeamShoot()
     {
-        LaserBeam = GetComponent<LineRenderer>();
-        LaserBeam.SetPosition(0, firePoint.position);
-        LaserBeam.SetPosition(1, LaserEndPoint.position);
+        Instantiate(LaserPrefab, firePoint.position, firePoint.rotation);
     }
 
     void energySyphon()
     {
-        Syphon = GetComponent<LineRenderer>();
-        Syphon.SetPosition(0, firePoint.position);
-        Syphon.SetPosition(1, enemypoint.position);
+
     }
     //Missile Shooting
     void ShootMissile()
@@ -101,15 +102,13 @@ public class Weapons_Systems : MonoBehaviour
         Instantiate(MissilePrefab, firePoint.position,firePoint.rotation);
 
     }
-    //Shotgun Shooting
-    void ShootShotGun()
+    //Tri Shooting
+    void ShootTriGun()
     {
-        /*
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, Random.Range(45, -45)));
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, Random.Range(45, -45)));
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, Random.Range(45, -45)));
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, Random.Range(45, -45)));
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, Random.Range(45, -45)));
-        */
+        Instantiate(bullet, firePoint.position, firePoint.rotation);
+        Instantiate(bullet, firePoint1.position, firePoint1.rotation);
+        Instantiate(bullet, firePoint2.position, firePoint2.rotation);
     }
+
+
 }

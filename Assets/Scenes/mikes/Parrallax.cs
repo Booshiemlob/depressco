@@ -31,7 +31,7 @@ public class Parrallax : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < Backgrounds.Length; i++)
+       /*for (int i = 0; i < Backgrounds.Length; i++)
         {
             float parrallax = (PreviousCamPos.x - cam.position.x) * ParrallaxScales[i];
 
@@ -40,6 +40,6 @@ public class Parrallax : MonoBehaviour
             Vector3 BackgroundTargetPos = new Vector3(BackgroundTargetPositionX, Backgrounds[i].position.y, Backgrounds[i].position.z);
 
             Backgrounds[i].position = Vector3.Lerp(Backgrounds[i].position, BackgroundTargetPos, Smoothing * Time.deltaTime);
-        }
+        }*/
     }
 }
