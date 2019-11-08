@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2596927178038179963}
   - component: {fileID: 4332784333340026338}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FG Planet 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

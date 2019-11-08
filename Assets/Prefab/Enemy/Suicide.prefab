@@ -97,12 +97,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionBP: {fileID: 7243604375643202896, guid: d70fd3d023d6f0e41abecf1206c05146,
     type: 3}
+  PowerUps: []
   here: {fileID: 3772217935416829466}
   player: {fileID: 0}
   moveSpeed: 7
-  stoppingDistance: 0
-  retreatDistance: 0
+  rand: 0
   spawnsc: {fileID: 0}
+  score: {fileID: 0}
   dead: 0
 --- !u!50 &5682713512756010179
 Rigidbody2D:

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831845303698358079}
   - component: {fileID: 382351079156744601}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MG Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}

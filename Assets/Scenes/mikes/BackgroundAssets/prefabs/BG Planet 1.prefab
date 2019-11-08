@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3217910099803448981}
   - component: {fileID: 5654299125828937870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BG Planet 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

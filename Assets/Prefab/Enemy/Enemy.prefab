@@ -121,6 +121,7 @@ MonoBehaviour:
     type: 3}
   projectile: {fileID: 5788387675940245570, guid: ab3d9ba568aa84843915db07e4a078de,
     type: 3}
+  PowerUps: []
   here: {fileID: 6977143083809205588}
   player: {fileID: 0}
   firePoint: {fileID: 5139092400052873758}
@@ -129,6 +130,7 @@ MonoBehaviour:
   retreatDistance: 3
   startTimeBtwShots: 2
   spawnsc: {fileID: 0}
+  score: {fileID: 0}
   dead: 0
 --- !u!61 &965585918
 BoxCollider2D:

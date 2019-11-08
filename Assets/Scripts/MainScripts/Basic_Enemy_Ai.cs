@@ -29,7 +29,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
         timeBtwShots = startTimeBtwShots;
 
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
-        score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+        //score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
      
     }
 
@@ -106,7 +106,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
                 }*/
                 spawnsc.enemyCount--;
                 //This adds 1 point to the score
-                score.UpScore();
+                //score.UpScore();
                 Destroy(gameObject);
             }
         }

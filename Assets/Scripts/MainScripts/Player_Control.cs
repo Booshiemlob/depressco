@@ -22,7 +22,7 @@ public class Player_Control : MonoBehaviour
     void Start()
     {
        rb = GetComponent<Rigidbody2D>();
-       score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+       //score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
     }
 
     // Update is called once per frame

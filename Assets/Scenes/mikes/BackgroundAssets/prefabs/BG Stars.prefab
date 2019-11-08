@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431976743572439471}
   - component: {fileID: 4605946547492123210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BG Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}

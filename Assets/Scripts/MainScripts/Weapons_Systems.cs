@@ -10,14 +10,39 @@ public class Weapons_Systems : MonoBehaviour
     public GameObject bullet;
     public GameObject MissilePrefab;
     public GameObject LaserPrefab;
+    public GameObject EmpPrefab;
     public int Primary = 0;
     public int Secondary = 0;
     public GameObject[] enemy;
+
+    public bool WeaponCheat;
 
     public Transform LaserEndPoint;
     // Update is called once per frame
     void Update()
     {
+        //developer cheat to quick swap to different weapons to test them out
+        if (WeaponCheat == true)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Primary += 1;
+                if(Primary >= 2)
+                {
+                    Primary = 0;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Secondary += 1;
+                if(Secondary >= 3)
+                {
+                    Secondary = 0;
+                }
+            }
+        }
+
         if (Primary == 0)
         {
             if (Input.GetButtonDown("Fire1"))
@@ -28,19 +53,19 @@ public class Weapons_Systems : MonoBehaviour
         }
         if (Primary == 1)
         {
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButtonDown("Fire1"))
             {
                 ShootTriGun();
             }
         }
-        if (Primary == 2)
+        if (Secondary == 0)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire2"))
             {
                 ShootMissile();
             }
         }
-        if(Secondary == 1)
+        if (Secondary == 1)
         {
             if (Input.GetButton("Fire2"))
             {
@@ -49,10 +74,11 @@ public class Weapons_Systems : MonoBehaviour
         }
         if (Secondary == 2)
         {
-            ShootMissile();
+            if (Input.GetButtonDown("Fire2"))
+            {
+                EmpBlast();
+            }
         }
-
-        var Rot = firePoint.rotation;
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
@@ -70,6 +96,7 @@ public class Weapons_Systems : MonoBehaviour
         {
             Primary = 3;
         }
+
         if (hitInfo.CompareTag("Weapon4"))
         {
             Secondary = 1;
@@ -92,10 +119,6 @@ public class Weapons_Systems : MonoBehaviour
         Instantiate(LaserPrefab, firePoint.position, firePoint.rotation);
     }
 
-    void energySyphon()
-    {
-
-    }
     //Missile Shooting
     void ShootMissile()
     {
@@ -108,6 +131,11 @@ public class Weapons_Systems : MonoBehaviour
         Instantiate(bullet, firePoint.position, firePoint.rotation);
         Instantiate(bullet, firePoint1.position, firePoint1.rotation);
         Instantiate(bullet, firePoint2.position, firePoint2.rotation);
+    }
+
+    void EmpBlast()
+    {
+        Instantiate(EmpPrefab, firePoint.position, firePoint.rotation);
     }
 
 

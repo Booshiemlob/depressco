@@ -25,7 +25,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
         //This finds the text for the score.
-        score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+        //score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
 
     }
 
@@ -62,7 +62,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                     Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
                 }*/
                 //This adds 1 to the score
-                score.UpScore();
+                //score.UpScore();
                 Destroy(gameObject);
             }
 
