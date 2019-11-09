@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Parrallax : MonoBehaviour
 {
-    public Transform[] Backgrounds;
+    public GameObject[] Backgrounds = new GameObject[100];
     private float[] ParrallaxScales;
     public float Smoothing = 1f;
-
     private Transform cam;
     private Vector3 PreviousCamPos;
 
@@ -18,28 +17,38 @@ public class Parrallax : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PreviousCamPos = cam.position;
+        for(int i = 0; i < Backgrounds.Length; i++)
+        {
+            Backgrounds = GameObject.FindGameObjectsWithTag("BackgroundAsset");
+        }
+        
+        
+            PreviousCamPos = cam.position;
 
         ParrallaxScales = new float[Backgrounds.Length];
         for (int i = 0; i < Backgrounds.Length; i++)
         {
-            ParrallaxScales[i] = Backgrounds[i].position.z * -1;
+            ParrallaxScales[i] = Backgrounds[i].transform.position.z * -1;
         }
         
+        //grabs background and attachs it to the parralax
     }
 
     // Update is called once per frame
     void Update()
     {
-       /*for (int i = 0; i < Backgrounds.Length; i++)
+        if (Backgrounds.Length < 0)
         {
-            float parrallax = (PreviousCamPos.x - cam.position.x) * ParrallaxScales[i];
+            for (int i = 0; i < Backgrounds.Length; i++)
+            {
+                float parrallax = (PreviousCamPos.x - cam.position.x) * ParrallaxScales[i];
 
-            float BackgroundTargetPositionX = Backgrounds[i].position.x + parrallax;
+                float BackgroundTargetPositionX = Backgrounds[i].transform.position.x + parrallax;
 
-            Vector3 BackgroundTargetPos = new Vector3(BackgroundTargetPositionX, Backgrounds[i].position.y, Backgrounds[i].position.z);
+                Vector3 BackgroundTargetPos = new Vector3(BackgroundTargetPositionX, Backgrounds[i].transform.position.y, Backgrounds[i].transform.position.z);
 
-            Backgrounds[i].position = Vector3.Lerp(Backgrounds[i].position, BackgroundTargetPos, Smoothing * Time.deltaTime);
-        }*/
+                Backgrounds[i].transform.position = Vector3.Lerp(Backgrounds[i].transform.position, BackgroundTargetPos, Smoothing * Time.deltaTime);
+            }
+        }
     }
 }
