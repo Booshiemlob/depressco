@@ -4,20 +4,57 @@ using UnityEngine;
 
 public class Weapons_Systems : MonoBehaviour
 {
+    [Header("Fire Points")]
+    // Player FirePoints
     public Transform firePoint;
     public Transform firePoint1;
     public Transform firePoint2;
-    public GameObject bullet;
+    public Transform firePoint3;
+    public Transform firePoint4;
+
+    [Header("Weapon Prefabs")]
+    //primary Weapons
+    public GameObject Bullet;
+    public GameObject EnergyPulse;
+
+    //secondary Weapons
     public GameObject MissilePrefab;
     public GameObject LaserPrefab;
+    public GameObject MinePrefab;
+
+    //Ultimate Weapons
     public GameObject EmpPrefab;
+    public GameObject ShieldPrefab;
+    public GameObject HelperPrefab;
+
+    [Header("Selected Weapons")]
+    // Weapon Selected variables
     public int Primary = 0;
     public int Secondary = 0;
+    public int Ultimate = 0;
+
+    [Header("Weapon Cooldown time")]
+    //weapon Cooldowns
+    public float PrimaryCooldown = 0;
+    public float SecondaryCooldown = 0;
+
+    [Header("Each weapon cooldown")]
+    public float SingleShotCooldown;
+    public float TrippleShotCooldown;
+    public float EnergyPulseCooldown;
+    [Space(10)]
+    public float MissileCooldown;
+    public float LaserCooldown;
+    public float LaserFiretime;
+    public float MineCooldown;
+    public int MineCount;
+    public int mineCountMax;
+
+    [Space(20)]
     public GameObject[] enemy;
 
     public bool WeaponCheat;
 
-    public Transform LaserEndPoint;
     // Update is called once per frame
     void Update()
     {
@@ -27,7 +64,7 @@ public class Weapons_Systems : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Primary += 1;
-                if(Primary >= 2)
+                if(Primary >= 3)
                 {
                     Primary = 0;
                 }
@@ -36,18 +73,28 @@ public class Weapons_Systems : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 Secondary += 1;
-                if(Secondary >= 3)
+                if(Secondary >= 4)
                 {
                     Secondary = 0;
                 }
             }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Ultimate += 1;
+                if(Ultimate >= 4)
+                {
+                    Ultimate = 0;
+                }
+            }
         }
-
+        //primary Weapons
+        #region primary Weapons
         if (Primary == 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
                 ShootBullet();
+               
             }
 
         }
@@ -56,33 +103,96 @@ public class Weapons_Systems : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 ShootTriGun();
+            
             }
         }
-        if (Secondary == 0)
+        if (Primary == 2)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                ShootEnergyPulse();
+       
+            }
+        }
+        #endregion
+
+        //seconday weapons
+        #region Secondary Weapons
+        if (Secondary == 1)
         {
             if (Input.GetButtonDown("Fire2"))
             {
                 ShootMissile();
-            }
-        }
-        if (Secondary == 1)
-        {
-            if (Input.GetButton("Fire2"))
-            {
-                LaserBeamShoot();
+          
             }
         }
         if (Secondary == 2)
         {
+            if (Input.GetButton("Fire2"))
+            {
+                LaserBeamShoot();
+             
+            }
+        }
+        if (Secondary == 3)
+        {
             if (Input.GetButtonDown("Fire2"))
             {
+                MineShoot();
+                
+            }
+        }
+        #endregion
+
+        //Ultimate Weapons
+        #region Ultimate Weapons
+        if (Ultimate == 1)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
                 EmpBlast();
+            }
+        }
+        if (Ultimate == 2)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Shield();
+            }
+        }
+        if (Ultimate == 3)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Helper();
+            }
+        }
+        #endregion
+
+        //CoolDowns
+
+        if(PrimaryCooldown > 0)
+        {
+            PrimaryCooldown -= 1 * Time.deltaTime;
+        }
+
+        if(SecondaryCooldown > 0)
+        {
+            SecondaryCooldown -= 1*Time.deltaTime;
+        }
+
+        if (Secondary == 3 && MineCount < mineCountMax)
+        {
+            if (SecondaryCooldown <= 0)
+            {
+                MineCount += 1;
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        /*
         //Changes your primary/secondary weapon based on the power up the player picked up.
         if (hitInfo.CompareTag("Weapon1"))
         {
@@ -105,38 +215,100 @@ public class Weapons_Systems : MonoBehaviour
         {
             Secondary = 2;
         }
+        */
 
     }
+    #region primary weapons
     //Regular shooting
     void ShootBullet()
     {
-        Instantiate(bullet, firePoint.position, firePoint.rotation);
- 
-    }
-    //Laser Shooting
-    void LaserBeamShoot()
-    {
-        Instantiate(LaserPrefab, firePoint.position, firePoint.rotation);
+        if (PrimaryCooldown <= 0)
+        {
+            Instantiate(Bullet, firePoint.position, firePoint.rotation);
+            PrimaryCooldown = SingleShotCooldown;
+        }
     }
 
-    //Missile Shooting
-    void ShootMissile()
-    {
-        Instantiate(MissilePrefab, firePoint.position,firePoint.rotation);
-
-    }
     //Tri Shooting
     void ShootTriGun()
     {
-        Instantiate(bullet, firePoint.position, firePoint.rotation);
-        Instantiate(bullet, firePoint1.position, firePoint1.rotation);
-        Instantiate(bullet, firePoint2.position, firePoint2.rotation);
+        if (PrimaryCooldown <= 0)
+        {
+            Instantiate(Bullet, firePoint.position, firePoint.rotation);
+            Instantiate(Bullet, firePoint1.position, firePoint1.rotation);
+            Instantiate(Bullet, firePoint2.position, firePoint2.rotation);
+            PrimaryCooldown = TrippleShotCooldown;
+        }
     }
 
+    //energy pulse shooting
+    void ShootEnergyPulse()
+    {
+        if (PrimaryCooldown <= 0)
+        {
+            Instantiate(EnergyPulse, firePoint.position, firePoint.rotation);
+            PrimaryCooldown = EnergyPulseCooldown;
+        }
+    }
+    #endregion
+
+    #region secondary weapons
+    //Missile Shooting
+    void ShootMissile()
+    {
+        if (SecondaryCooldown <= 0)
+        {
+            Instantiate(MissilePrefab, firePoint.position, firePoint.rotation);
+            SecondaryCooldown = MissileCooldown;
+        }
+    }
+
+    //Laser Shooting
+    void LaserBeamShoot()
+    {
+        if (SecondaryCooldown <= 0)
+        {
+            Instantiate(LaserPrefab, firePoint.position, firePoint.rotation);
+            SecondaryCooldown = LaserCooldown;
+        }
+    }
+
+    // droppping mines
+    void MineShoot()
+    {
+        if (MineCount > 0)
+        {
+            Instantiate(MinePrefab, firePoint3.position, firePoint3.rotation);
+            MineCount -= 1;
+            SecondaryCooldown += MineCooldown; 
+
+
+        }
+    }
+    #endregion
+
+    #region ultimate weapons
+    //Emp Blast
     void EmpBlast()
     {
         Instantiate(EmpPrefab, firePoint.position, firePoint.rotation);
+        Ultimate = 0;
     }
+
+    //shield
+    void Shield()
+    {
+        Instantiate(ShieldPrefab, firePoint.position, firePoint.rotation);
+        Ultimate = 0;
+    }
+
+    //helper drone
+    void Helper()
+    {
+        Instantiate(ShieldPrefab, firePoint.position, firePoint.rotation);
+        Ultimate = 0;
+    }
+    #endregion
 
 
 }
