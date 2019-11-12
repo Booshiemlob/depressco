@@ -104,7 +104,6 @@ public class Basic_Enemy_Ai : MonoBehaviour
                 {
                     Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
                 }*/
-                spawnsc.enemies.Remove(this.transform);
                 spawnsc.enemyCount--;
                 //This adds 1 point to the score
                 //score.UpScore();

@@ -53,7 +53,6 @@ public class Enemy_Suicide_Ai : MonoBehaviour
             {
                 //Destroys the ship and explodes, removing a count from the enemyCount.
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
-                spawnsc.enemies.Remove(this.transform);
                 spawnsc.enemyCount--;
                 dead = true;
                 //Random chance to spawn a random weapon power up.
