@@ -19,6 +19,7 @@ public class Helper_AI : MonoBehaviour
     public float startTimeBtwShots;
     private float distToClosestEnemy;
     private float distanceToEnemy;
+    public float DeathTimer;
     public SpawningScript spawnsc;
 
     void Start()
@@ -28,7 +29,7 @@ public class Helper_AI : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
         timeBtwShots = startTimeBtwShots;
-        Invoke("dead", 15);
+        Invoke("dead", DeathTimer);
     }
 
     void FixedUpdate()

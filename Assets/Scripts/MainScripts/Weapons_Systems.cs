@@ -65,7 +65,8 @@ public class Weapons_Systems : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Primary += 1;
-                if(Primary >= 3)
+                PrimaryCooldown = 0;
+                if (Primary >= 3)
                 {
                     Primary = 0;
                 }
@@ -74,6 +75,7 @@ public class Weapons_Systems : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 Secondary += 1;
+                SecondaryCooldown = 0;
                 if(Secondary >= 4)
                 {
                     Secondary = 0;
@@ -307,7 +309,7 @@ public class Weapons_Systems : MonoBehaviour
     //helper drone
     void Helper()
     {
-        Instantiate(ShieldPrefab, firePoint3.position, firePoint3.rotation);
+        Instantiate(HelperPrefab, firePoint3.position, firePoint3.rotation);
         Ultimate = 0;
     }
     #endregion

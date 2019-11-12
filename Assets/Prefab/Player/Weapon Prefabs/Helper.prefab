@@ -127,6 +127,7 @@ MonoBehaviour:
   stoppingDistance: 3
   retreatDistance: 4
   startTimeBtwShots: 2
+  DeathTimer: 20
   spawnsc: {fileID: 0}
 --- !u!1 &8814034501392835460
 GameObject:
