@@ -302,8 +302,8 @@ MonoBehaviour:
   here: {fileID: 7361675064293495542}
   life: 1
   isDead: 0
-  bigtext: {fileID: 8517553420119794205, guid: 9aad0d14c53ced44ea1eb775cb0b867b, type: 3}
-  score: {fileID: 3618608464240025860, guid: cd8467729130f5c4ba0f46d12711e4c6, type: 3}
+  bigtext: {fileID: 0}
+  score: {fileID: 0}
   immortal: 0
 --- !u!114 &7361675064293495543
 MonoBehaviour:
@@ -320,15 +320,33 @@ MonoBehaviour:
   firePoint: {fileID: 7361675065998272253}
   firePoint1: {fileID: 7361675063949485468}
   firePoint2: {fileID: 7361675063964057345}
-  firePoint3: {fileID: 0}
-  bullet: {fileID: 2366371526046583061, guid: 7205372e70beae54e88744cf5d8cd697, type: 3}
+  firePoint3: {fileID: 681920243790989864}
+  firePoint4: {fileID: 0}
+  Bullet: {fileID: 2366371526046583061, guid: 7205372e70beae54e88744cf5d8cd697, type: 3}
+  EnergyPulse: {fileID: 0}
   MissilePrefab: {fileID: 2510490387498040770, guid: fe72aea7cf3c0b744bd7f99eab051ed6,
     type: 3}
   LaserPrefab: {fileID: 3240174180161898552, guid: a86fec83f11783c4593557b683d5298f,
     type: 3}
-  EmpPrefab: {fileID: 0}
-  MinePrefab: {fileID: 0}
+  MinePrefab: {fileID: 4788124192038983546, guid: b6dca0af1d4255143b4146439626010c,
+    type: 3}
+  EmpPrefab: {fileID: 9170047391429250851, guid: 1c89136f065c20d47824241a3dce8efe,
+    type: 3}
+  ShieldPrefab: {fileID: 0}
+  HelperPrefab: {fileID: 0}
   Primary: 0
   Secondary: 0
+  Ultimate: 0
+  PrimaryCooldown: 0
+  SecondaryCooldown: 0
+  SingleShotCooldown: 0.1
+  TrippleShotCooldown: 0.3
+  EnergyPulseCooldown: 0.5
+  MissileCooldown: 3
+  LaserCooldown: 3
+  LaserFiretime: 0
+  MineCooldown: 5
+  MineCount: 0
+  mineCountMax: 3
   enemy: []
-  WeaponCheat: 0
+  WeaponCheat: 1
