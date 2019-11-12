@@ -45,13 +45,14 @@ public class Weapons_Systems : MonoBehaviour
     [Space(10)]
     public float MissileCooldown;
     public float LaserCooldown;
-    public float LaserFiretime;
     public float MineCooldown;
     public int MineCount;
     public int mineCountMax;
 
     [Space(20)]
     public GameObject[] enemy;
+
+    private GameObject Laser;
 
     public bool WeaponCheat;
 
@@ -128,7 +129,7 @@ public class Weapons_Systems : MonoBehaviour
         }
         if (Secondary == 2)
         {
-            if (Input.GetButton("Fire2"))
+            if (Input.GetButtonDown("Fire2"))
             {
                 LaserBeamShoot();
              
@@ -180,7 +181,6 @@ public class Weapons_Systems : MonoBehaviour
         {
             SecondaryCooldown -= 1*Time.deltaTime;
         }
-
         if (Secondary == 3 && MineCount < mineCountMax)
         {
             if (SecondaryCooldown <= 0)
@@ -190,9 +190,9 @@ public class Weapons_Systems : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D hitInfo)
+    /*private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        /*
+        
         //Changes your primary/secondary weapon based on the power up the player picked up.
         if (hitInfo.CompareTag("Weapon1"))
         {
@@ -215,9 +215,9 @@ public class Weapons_Systems : MonoBehaviour
         {
             Secondary = 2;
         }
-        */
+        
 
-    }
+    }*/
     #region primary weapons
     //Regular shooting
     void ShootBullet()
@@ -268,7 +268,8 @@ public class Weapons_Systems : MonoBehaviour
     {
         if (SecondaryCooldown <= 0)
         {
-            Instantiate(LaserPrefab, firePoint.position, firePoint.rotation);
+            GameObject Laser = Instantiate(LaserPrefab, firePoint.position, firePoint.rotation);
+            Laser.transform.parent = this.transform;
             SecondaryCooldown = LaserCooldown;
         }
     }
@@ -291,24 +292,23 @@ public class Weapons_Systems : MonoBehaviour
     //Emp Blast
     void EmpBlast()
     {
-        Instantiate(EmpPrefab, firePoint.position, firePoint.rotation);
+        Instantiate(EmpPrefab, firePoint4.position, firePoint4.rotation);
         Ultimate = 0;
     }
 
     //shield
     void Shield()
     {
-        Instantiate(ShieldPrefab, firePoint.position, firePoint.rotation);
+        GameObject g = Instantiate(ShieldPrefab, firePoint4.position, firePoint4.rotation);
+        g.transform.parent = this.transform;
         Ultimate = 0;
     }
 
     //helper drone
     void Helper()
     {
-        Instantiate(ShieldPrefab, firePoint.position, firePoint.rotation);
+        Instantiate(ShieldPrefab, firePoint3.position, firePoint3.rotation);
         Ultimate = 0;
     }
     #endregion
-
-
 }

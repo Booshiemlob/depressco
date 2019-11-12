@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class LaserScript : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public GameObject[] enemy;
+
+    public float LaserFiretime;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("dead", 0.01f);
+        Invoke("dead", LaserFiretime);
     }
-
-    private void OnTriggerEnter2D(Collider2D hitInfo)
+    private void Update()
     {
-
-        Destroy(gameObject);
+        if (Input.GetButtonUp("Fire2"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     void dead()

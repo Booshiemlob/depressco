@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnergyPulse : MonoBehaviour
 {
     public float speed = .1f;
     public Rigidbody2D rb;
@@ -16,13 +16,13 @@ public class Bullet : MonoBehaviour
         Invoke("Dead", Timer);
     }
 
-    private void OnTriggerEnter2D(Collider2D hitInfo)
+    /*private void OnTriggerEnter2D(Collider2D hitInfo)
     {
         if (hitInfo.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
-    }
+    }*/
 
     void Dead()
     {

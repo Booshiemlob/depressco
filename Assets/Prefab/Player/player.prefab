@@ -156,6 +156,7 @@ Transform:
   - {fileID: 7361675063949485468}
   - {fileID: 7361675063964057345}
   - {fileID: 681920243790989864}
+  - {fileID: 7396397296747482767}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -321,14 +322,60 @@ MonoBehaviour:
   firePoint1: {fileID: 7361675063949485468}
   firePoint2: {fileID: 7361675063964057345}
   firePoint3: {fileID: 0}
-  bullet: {fileID: 2366371526046583061, guid: 7205372e70beae54e88744cf5d8cd697, type: 3}
+  firePoint4: {fileID: 0}
+  Bullet: {fileID: 0}
+  EnergyPulse: {fileID: 0}
   MissilePrefab: {fileID: 2510490387498040770, guid: fe72aea7cf3c0b744bd7f99eab051ed6,
     type: 3}
   LaserPrefab: {fileID: 3240174180161898552, guid: a86fec83f11783c4593557b683d5298f,
     type: 3}
-  EmpPrefab: {fileID: 0}
   MinePrefab: {fileID: 0}
+  EmpPrefab: {fileID: 0}
+  ShieldPrefab: {fileID: 0}
+  HelperPrefab: {fileID: 0}
   Primary: 0
   Secondary: 0
+  Ultimate: 0
+  PrimaryCooldown: 0
+  SecondaryCooldown: 0
+  SingleShotCooldown: 0
+  TrippleShotCooldown: 0
+  EnergyPulseCooldown: 0
+  MissileCooldown: 0
+  LaserCooldown: 0
+  LaserFiretime: 0
+  MineCooldown: 0
+  MineCount: 0
+  mineCountMax: 0
   enemy: []
   WeaponCheat: 0
+--- !u!1 &9057883868705869850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7396397296747482767}
+  m_Layer: 0
+  m_Name: GameObject (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7396397296747482767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9057883868705869850}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 7361675064293495542}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}

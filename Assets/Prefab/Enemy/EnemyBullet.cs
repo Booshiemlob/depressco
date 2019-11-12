@@ -2,29 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     public float speed = .1f;
     public Rigidbody2D rb;
     public GameObject[] enemy;
-    public float Timer = 5f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb.velocity = transform.up * speed;
-        Invoke("Dead", Timer);
+        Invoke("dead", 5);
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);    
     }
 
-    void Dead()
+    void dead()
     {
         Destroy(gameObject);
     }
