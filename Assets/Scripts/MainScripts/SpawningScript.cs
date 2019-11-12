@@ -9,6 +9,7 @@ public class SpawningScript : MonoBehaviour
     public int enemyCount = 0;
     public int randEnemy;
     public int randSpawn;
+    public List<Transform> enemies = new List<Transform>(); 
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class SpawningScript : MonoBehaviour
         randEnemy = Random.Range(0, 2);
         randSpawn = Random.Range(0, spawner.Length);
         GameObject Clone = (GameObject)Instantiate(enemy[randEnemy], spawner[randSpawn].position, spawner[randSpawn].rotation);
+        enemies.Add(Clone.GetComponent<Transform>());
         enemyCount++;
     }
 }
