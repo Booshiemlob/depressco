@@ -9,17 +9,24 @@ public class SpawningScript : MonoBehaviour
     public int enemyCount = 0;
     public int randEnemy;
     public int randSpawn;
+    public float enemyLimit;
+    public float enemyScaling;
+    public ScoreScript score;
     public List<Transform> enemies = new List<Transform>(); 
     // Start is called before the first frame update
     void Start()
     {
-
+        score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+        enemyLimit = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemyCount < 3)
+
+        difficultyCurve();
+
+        if (enemyCount < enemyLimit)
         {
             spawnEnemies();
         }
@@ -29,6 +36,14 @@ public class SpawningScript : MonoBehaviour
         }
 
     }
+    private void FixedUpdate()
+    {
+        if (enemyScaling > enemyLimit)
+        {
+            Debug.Log("ahh");
+            enemyLimit = enemyScaling;
+        }
+    }
 
     void spawnEnemies()
     {
@@ -37,5 +52,18 @@ public class SpawningScript : MonoBehaviour
         GameObject Clone = (GameObject)Instantiate(enemy[randEnemy], spawner[randSpawn].position, spawner[randSpawn].rotation);
         enemies.Add(Clone.GetComponent<Transform>());
         enemyCount++;
+    }
+
+    void difficultyCurve()
+    {
+        enemyScaling = score.scoreOfPlayer;
+        Mathf.Floor(enemyScaling /= 5);
+        Debug.Log(enemyScaling);
+        if (enemyScaling <= enemyLimit || enemyScaling != 0)
+        {
+            return;
+        }
+
+
     }
 }

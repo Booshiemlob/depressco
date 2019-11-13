@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Score: 0'
+  m_Text: "   Score:0\r\nGame Over"
 --- !u!114 &8517553420119794205
 MonoBehaviour:
   m_ObjectHideFlags: 0

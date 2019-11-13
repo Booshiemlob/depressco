@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScoreScript : MonoBehaviour
 {
     public int scoreOfPlayer;
+
     // Start is called before the first frame update
     void Start()
     {

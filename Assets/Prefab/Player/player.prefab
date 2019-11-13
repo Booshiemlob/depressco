@@ -323,16 +323,21 @@ MonoBehaviour:
   firePoint2: {fileID: 7361675063964057345}
   firePoint3: {fileID: 0}
   firePoint4: {fileID: 0}
-  Bullet: {fileID: 0}
-  EnergyPulse: {fileID: 0}
+  Bullet: {fileID: 2366371526046583061, guid: 7205372e70beae54e88744cf5d8cd697, type: 3}
+  EnergyPulse: {fileID: 2527655259149382110, guid: 54446c30d0430ab40be777419617e7ea,
+    type: 3}
   MissilePrefab: {fileID: 2510490387498040770, guid: fe72aea7cf3c0b744bd7f99eab051ed6,
     type: 3}
   LaserPrefab: {fileID: 3240174180161898552, guid: a86fec83f11783c4593557b683d5298f,
     type: 3}
-  MinePrefab: {fileID: 0}
-  EmpPrefab: {fileID: 0}
-  ShieldPrefab: {fileID: 0}
-  HelperPrefab: {fileID: 0}
+  MinePrefab: {fileID: 4788124192038983546, guid: b6dca0af1d4255143b4146439626010c,
+    type: 3}
+  EmpPrefab: {fileID: 9170047391429250851, guid: 1c89136f065c20d47824241a3dce8efe,
+    type: 3}
+  ShieldPrefab: {fileID: 8826314836348343369, guid: ea9324483d94e6346afaa642e10f7e4b,
+    type: 3}
+  HelperPrefab: {fileID: 2809025870102800561, guid: 9fc336fbf99950749a367ad6f8cb5ead,
+    type: 3}
   Primary: 0
   Secondary: 0
   Ultimate: 0
@@ -343,7 +348,6 @@ MonoBehaviour:
   EnergyPulseCooldown: 0
   MissileCooldown: 0
   LaserCooldown: 0
-  LaserFiretime: 0
   MineCooldown: 0
   MineCount: 0
   mineCountMax: 0

@@ -192,7 +192,7 @@ public class Weapons_Systems : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter2D(Collider2D hitInfo)
+    private void OnTriggerEnter2D(Collider2D hitInfo)
     {
         
         //Changes your primary/secondary weapon based on the power up the player picked up.
@@ -219,7 +219,7 @@ public class Weapons_Systems : MonoBehaviour
         }
         
 
-    }*/
+    }
     #region primary weapons
     //Regular shooting
     void ShootBullet()

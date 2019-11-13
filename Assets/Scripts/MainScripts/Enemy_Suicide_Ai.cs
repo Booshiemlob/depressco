@@ -25,7 +25,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
         //This finds the text for the score.
-        //score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+        score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
 
     }
 
@@ -57,13 +57,13 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 spawnsc.enemyCount--;
                 dead = true;
                 //Random chance to spawn a random weapon power up.
-                /*rand = Random.Range(0f, 1f);
+                rand = Random.Range(0f, 1f);
                 if (rand >= 0f)
                 {
                     Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
-                }*/
+                }
                 //This adds 1 to the score
-                //score.UpScore();
+                score.UpScore();
                 Destroy(gameObject);
             }
 

@@ -29,7 +29,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
         timeBtwShots = startTimeBtwShots;
 
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
-        //score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+        score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
      
     }
 
@@ -99,15 +99,15 @@ public class Basic_Enemy_Ai : MonoBehaviour
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
                 dead = true;
                 //Random chance to spawn a random weapon power up.
-                /*float a = Random.Range(0f, 1f);
+                float a = Random.Range(0f, 1f);
                 if (a <= 0.3f)
                 {
                     Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
-                }*/
+                }
                 spawnsc.enemies.Remove(this.transform);
                 spawnsc.enemyCount--;
                 //This adds 1 point to the score
-                //score.UpScore();
+                score.UpScore();
                 Destroy(gameObject);
             }
         }
