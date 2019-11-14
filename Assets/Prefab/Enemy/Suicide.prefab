@@ -97,14 +97,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionBP: {fileID: 7243604375643202896, guid: d70fd3d023d6f0e41abecf1206c05146,
     type: 3}
-  PowerUps:
-  - {fileID: 7055597259864059220, guid: e66a50aff7912a243a5610217550a6be, type: 3}
+  PowerUpsP:
+  - {fileID: 8096684498902919021, guid: 8523044e5192df340b1d4d78d6eae36f, type: 3}
+  - {fileID: 1718144260792455957, guid: 300ac86d6f1007f4980ff0318ea7b271, type: 3}
+  - {fileID: 2885608736095670674, guid: 4565a455859ab7446a72e33d46bd156f, type: 3}
+  PowerUpsS:
+  - {fileID: 8096684498902919021, guid: 8523044e5192df340b1d4d78d6eae36f, type: 3}
+  - {fileID: 1718144260792455957, guid: 300ac86d6f1007f4980ff0318ea7b271, type: 3}
+  - {fileID: 2885608736095670674, guid: 4565a455859ab7446a72e33d46bd156f, type: 3}
+  PowerUpsU:
+  - {fileID: 8096684498902919021, guid: 8523044e5192df340b1d4d78d6eae36f, type: 3}
+  - {fileID: 1718144260792455957, guid: 300ac86d6f1007f4980ff0318ea7b271, type: 3}
+  - {fileID: 2885608736095670674, guid: 4565a455859ab7446a72e33d46bd156f, type: 3}
+  ammo: []
   here: {fileID: 3772217935416829466}
   player: {fileID: 0}
   moveSpeed: 7
   rand: 0
+  rand2: 0
   spawnsc: {fileID: 0}
   score: {fileID: 0}
+  weapon: {fileID: 0}
   dead: 0
 --- !u!50 &5682713512756010179
 Rigidbody2D:

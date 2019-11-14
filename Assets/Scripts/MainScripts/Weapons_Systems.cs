@@ -48,7 +48,12 @@ public class Weapons_Systems : MonoBehaviour
     public float MineCooldown;
     public int MineCount;
     public int mineCountMax;
+    //Primary ammo
     public int ammo1 = 0;
+    //Secondary ammo
+    public int ammo2 = 0;
+    //Mine ammo
+    public int ammo3 = 0;
 
     [Space(20)]
     public GameObject[] enemy;
@@ -197,7 +202,7 @@ public class Weapons_Systems : MonoBehaviour
     {
         if(ammo1 == 0)
         {
-            Primary = 0;
+            //Primary = 0;
         }
     }
 

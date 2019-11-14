@@ -9,20 +9,24 @@ public class Player_Control : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject player;
     public float forwardSpeed = 30f;
-    public GameObject[] bullets;
     public GameObject ExplosionBP;
     public Transform here;
     public float life = 1.0f;
     public bool isDead = false;
     public BigText bigtext;
     public ScoreScript score;
+    public ScoreScript score2;
     public bool immortal = false;
+    public GameObject end_scorer;
 
     // Start is called before the first frame update
     void Start()
     {
+       player = GameObject.Find("player");
+       end_scorer = GameObject.Find("scoretext 2");
        rb = GetComponent<Rigidbody2D>();
-       //score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+       score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+       score2 = GameObject.Find("scoretext 2").GetComponent<ScoreScript>();
     }
 
     // Update is called once per frame
@@ -84,15 +88,16 @@ public class Player_Control : MonoBehaviour
     }
     void Loadd()
     {
-        SceneManager.LoadScene(0);
-        SceneManager.UnloadSceneAsync(1);
+        SceneManager.LoadScene("Start Menu");
+        SceneManager.UnloadSceneAsync("Game");
     }
 
     void lifeCheck()
     {
         GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
         gameObject.SetActive(false);
-        bigtext.displayFinalScore(score.scoreOfPlayer);
+        end_scorer.SetActive(true);
+        Debug.Log("FinalScore!");
         Invoke("Loadd", 5);
     }
 
