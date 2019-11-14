@@ -6,7 +6,10 @@ public class Basic_Enemy_Ai : MonoBehaviour
 {
     public GameObject ExplosionBP;
     public GameObject projectile;
-    public GameObject[] PowerUps;
+    public GameObject[] PowerUpsP;
+    public GameObject[] PowerUpsS;
+    public GameObject[] PowerUpsU;
+    public GameObject[] ammo;
     public Transform here;
     public Transform player;
     public Transform firePoint;
@@ -17,8 +20,10 @@ public class Basic_Enemy_Ai : MonoBehaviour
     public float retreatDistance;
     private float timeBtwShots;
     public float startTimeBtwShots;
+    public float rand;
     public SpawningScript spawnsc;
     public ScoreScript score;
+    public Weapons_Systems weapon;
     public bool dead = false;
 
 
@@ -30,7 +35,8 @@ public class Basic_Enemy_Ai : MonoBehaviour
 
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
         score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
-     
+        weapon = GameObject.Find("player").GetComponent<Weapons_Systems>();
+
     }
 
     void FixedUpdate()
@@ -99,10 +105,49 @@ public class Basic_Enemy_Ai : MonoBehaviour
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
                 dead = true;
                 //Random chance to spawn a random weapon power up.
-                float a = Random.Range(0f, 1f);
-                if (a <= 0.3f)
+                float rand = Random.Range(0f, 1f);
+                rand = Random.Range(0f, 1f);
+                if (rand >= 0.6f)
                 {
-                    Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
+                    rand = Random.Range(0, 11);
+                    if (rand <= 3)
+                    {
+                        if (weapon.Primary == 0)
+                        {
+                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsP.Length)], here.position, here.rotation);
+                        }
+                    }
+                    else
+                    {
+                        Instantiate(ammo[0], here.position, here.rotation);
+                    }
+                    if (4 <= rand && rand < 6)
+                    {
+                        if (weapon.Secondary == 0)
+                        {
+                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsS.Length)], here.position, here.rotation);
+                        }
+                    }
+                    else
+                    {
+                        Instantiate(ammo[1], here.position, here.rotation);
+                    }
+
+                    if (rand == 6)
+                    {
+                        if (weapon.Ultimate == 0)
+                        {
+                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsU.Length)], here.position, here.rotation);
+                        }
+                        else
+                        {
+                            Instantiate(ammo[2], here.position, here.rotation);
+                        }
+                        if (rand >= 7)
+                        {
+                            Instantiate(PowerUpsP[Random.Range(0, ammo.Length)], here.position, here.rotation);
+                        }
+                    }
                 }
                 spawnsc.enemies.Remove(this.transform);
                 spawnsc.enemyCount--;

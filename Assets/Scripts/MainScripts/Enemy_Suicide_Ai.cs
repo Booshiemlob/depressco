@@ -5,7 +5,10 @@ using UnityEngine;
 public class Enemy_Suicide_Ai : MonoBehaviour
 {
     public GameObject ExplosionBP;
-    public GameObject[] PowerUps;
+    public GameObject[] PowerUpsP;
+    public GameObject[] PowerUpsS;
+    public GameObject[] PowerUpsU;
+    public GameObject[] ammo;
     public Transform here;
     public Transform player;
     private Rigidbody2D rb;
@@ -60,17 +63,51 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 dead = true;
                 //Random chance to spawn a random weapon power up.
                 rand = Random.Range(0f, 1f);
-                if (weapon.Primary == 0)
+                if (rand >= 0.6f)
                 {
-                    if (rand >= 0f)
+                    rand = Random.Range(0, 11);
+                    if (rand <= 3)
                     {
-                        Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
+                        if (weapon.Primary == 0)
+                        {
+                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsP.Length)], here.position, here.rotation);
+                        }
                     }
+                    else
+                    {
+                        Instantiate(ammo[0], here.position, here.rotation);
+                    }
+                    if (4 <= rand && rand < 6)
+                    {
+                        if (weapon.Secondary == 0)
+                        {
+                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsS.Length)], here.position, here.rotation);
+                        }
+                    }
+                    else
+                    {
+                        Instantiate(ammo[1], here.position, here.rotation);
+                    }
+
+                    if (rand == 6)
+                    {
+                        if (weapon.Ultimate == 0)
+                        {
+                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsU.Length)], here.position, here.rotation);
+                        }
+                        else
+                        {
+                            Instantiate(ammo[2], here.position, here.rotation);
+                        }
+                        if (rand >= 7)
+                        {
+                            Instantiate(PowerUpsP[Random.Range(0, ammo.Length)], here.position, here.rotation);
+                        }
+                    }
+
                 }
-                if (weapon.Primary != 0)
-                {
-                    weapon.ammo1 += 10;
-                }
+                spawnsc.enemies.Remove(this.transform);
+                spawnsc.enemyCount--;
                 //This adds 1 to the score
                 score.UpScore();
                 Destroy(gameObject);
