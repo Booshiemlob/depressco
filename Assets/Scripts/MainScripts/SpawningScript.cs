@@ -57,7 +57,8 @@ public class SpawningScript : MonoBehaviour
     void difficultyCurve()
     {
         enemyScaling = score.scoreOfPlayer;
-        Mathf.Floor(enemyScaling /= 5);
+        Mathf.Round(enemyScaling /= 5);
+        enemyScaling=(int)(enemyScaling);
         Debug.Log(enemyScaling);
         if (enemyScaling <= enemyLimit || enemyScaling != 0)
         {

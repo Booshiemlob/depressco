@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5023346877382446913}
   - component: {fileID: 365846523804288833}
   - component: {fileID: 7574525106727692901}
+  - component: {fileID: 15825574359424331}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Player Bullets
@@ -115,7 +116,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -136,6 +137,7 @@ MonoBehaviour:
   speed: 20
   rb: {fileID: 3893076724427282048}
   enemy: []
+  Timer: 5
 --- !u!212 &7574525106727692901
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -185,3 +187,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &15825574359424331
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366371526046583061}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.1, y: 0.24}
+  m_Direction: 0
