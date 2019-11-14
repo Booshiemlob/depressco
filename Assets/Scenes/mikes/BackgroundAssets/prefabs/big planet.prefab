@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -8875442287382681176}
   m_Layer: 8
   m_Name: big planet
-  m_TagString: Untagged
+  m_TagString: BackgoundAsset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
