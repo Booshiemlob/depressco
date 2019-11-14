@@ -5,13 +5,17 @@ using UnityEngine;
 public class Enemy_Suicide_Ai : MonoBehaviour
 {
     public GameObject ExplosionBP;
-    public GameObject[] PowerUps;
+    public GameObject[] PowerUpsP;
+    public GameObject[] PowerUpsS;
+    public GameObject[] PowerUpsU;
+    public GameObject[] ammo;
     public Transform here;
     public Transform player;
     private Rigidbody2D rb;
     private Vector2 movement;
     public float moveSpeed = 7f;
     public float rand;
+    public int rand2;
     public SpawningScript spawnsc;
     public ScoreScript score;
     public Weapons_Systems weapon;
@@ -59,7 +63,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     {
         if (hitInfo.CompareTag("Player") || hitInfo.CompareTag("Player Bullets"))
         {
-            
+
             if (dead == false)
             {
                 //Destroys the ship and explodes, removing a count from the enemyCount.
@@ -69,23 +73,82 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 dead = true;
                 //Random chance to spawn a random weapon power up.
                 rand = Random.Range(0f, 1f);
-                if (weapon.Primary == 0)
+                rand2 = Random.Range(0, 11);
+                if (rand >= 0.6f)
                 {
-                    if (rand >= 0f)
+                    if (rand2 <= 3)
                     {
-                        Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
+                        if (weapon.Primary == 0)
+                        {
+                            //Instantiate(PowerUpsP[Random.Range(0, PowerUpsP.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                        }
+                        else
+                        {
+                            if(rand2 < 3)
+                            {
+                                if(weapon.Primary == 1)
+                                {
+                                    //Instantiate(PowerUpsP[1], here.position, Quaternion.Euler(0, 0, 0));
+                                }
+                                else
+                                {
+                                    //Instantiate(PowerUpsP[0], here.position, Quaternion.Euler(0, 0, 0));
+                                }
+                            }
+                            else
+                            {
+                                //Instantiate(ammo[0], here.position, Quaternion.Euler(0, 0, 0));
+                            }
+                        }
+                    }
+
+                    if (4 <= rand2 && rand2 < 6)
+                    {
+                        if (weapon.Secondary == 0)
+                        {
+                            //Instantiate(PowerUpsP[Random.Range(0, PowerUpsS.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                        }
+                        else
+                        {
+                            if (rand2 < 3)
+                            {
+                                if (weapon.Secondary == 1)
+                                {
+                                    //Instantiate(PowerUpsS[0], here.position, Quaternion.Euler(0, 0, 0));
+                                }
+                                else
+                                {
+                                    //Instantiate(PowerUpsS[1], here.position, Quaternion.Euler(0, 0, 0));
+                                }
+                            }
+                            else
+                            {
+                                //Instantiate(ammo[1], here.position, Quaternion.Euler(0, 0, 0));
+                            }
+                        }
+                    }
+                    if (rand2 == 6)
+                    {
+                        if (weapon.Ultimate == 0)
+                        {
+                            //Instantiate(PowerUpsP[Random.Range(0, PowerUpsU.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                        }
+                        else
+                        {
+                            //Instantiate(ammo[2], here.position, Quaternion.Euler(0, 0, 0));
+                        }
+                    }
+                    if (rand2 >= 7)
+                    {
+                        //Instantiate(PowerUpsP[Random.Range(0, ammo.Length)], here.position, Quaternion.Euler(0, 0, 0));
                     }
                 }
-                if (weapon.Primary != 0)
-                {
-                    weapon.ammo1 += 10;
-                }
+                spawnsc.enemies.Remove(this.transform);
+                spawnsc.enemyCount--;
                 //This adds 1 to the score
                 score.UpScore();
                 Destroy(gameObject);
             }
-
-
         }
     }   
 }
