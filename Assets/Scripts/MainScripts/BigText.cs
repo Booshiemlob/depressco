@@ -7,15 +7,23 @@ public class BigText : MonoBehaviour
 {
     //public int finalScore;
     // Start is called before the first frame update
+
+    public GameObject player;
+    public ScoreScript score;
     void Start()
     {
-       gameObject.SetActive(false);
+        
+        player = GameObject.Find("player");
+        score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+        gameObject.SetActive(false);
     }
 
     //This displays the final score in big text 
-    public void displayFinalScore(int finalScore)
+    void Update()
     {
         gameObject.SetActive(true);
-        this.GetComponent<Text>().text = "   Score:" + finalScore + "\r\nGame Over";
+        Debug.Log("finalscore is displayed " + gameObject.activeSelf);
+        this.GetComponent<Text>().text = "   Score:" + score.scoreOfPlayer + "\r\nGame Over";
     }
+   
 }
