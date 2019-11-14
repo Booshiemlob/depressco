@@ -116,7 +116,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
                     {
                         if (weapon.Primary == 0)
                         {
-                            //Instantiate(PowerUpsP[Random.Range(0, PowerUpsP.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsP.Length)], here.position, Quaternion.Euler(0, 0, 0));
                         }
                         else
                         {
@@ -124,16 +124,16 @@ public class Basic_Enemy_Ai : MonoBehaviour
                             {
                                 if (weapon.Primary == 1)
                                 {
-                                    //Instantiate(PowerUpsP[1], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(PowerUpsP[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                                 else
                                 {
-                                    //Instantiate(PowerUpsP[0], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(PowerUpsP[0], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                             }
                             else
                             {
-                                //Instantiate(ammo[0], here.position, Quaternion.Euler(0, 0, 0));
+                                Instantiate(ammo[0], here.position, Quaternion.Euler(0, 0, 0));
                             }
                         }
                     }
@@ -142,7 +142,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
                     {
                         if (weapon.Secondary == 0)
                         {
-                            //Instantiate(PowerUpsP[Random.Range(0, PowerUpsS.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsS.Length)], here.position, Quaternion.Euler(0, 0, 0));
                         }
                         else
                         {
@@ -150,16 +150,16 @@ public class Basic_Enemy_Ai : MonoBehaviour
                             {
                                 if (weapon.Secondary == 1)
                                 {
-                                    //Instantiate(PowerUpsS[0], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(PowerUpsS[0], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                                 else
                                 {
-                                    //Instantiate(PowerUpsS[1], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(PowerUpsS[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                             }
                             else
                             {
-                                //Instantiate(ammo[1], here.position, Quaternion.Euler(0, 0, 0));
+                                Instantiate(ammo[1], here.position, Quaternion.Euler(0, 0, 0));
                             }
                         }
                     }
@@ -167,16 +167,16 @@ public class Basic_Enemy_Ai : MonoBehaviour
                     {
                         if (weapon.Ultimate == 0)
                         {
-                            //Instantiate(PowerUpsP[Random.Range(0, PowerUpsU.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsU.Length)], here.position, Quaternion.Euler(0, 0, 0));
                         }
                         else
                         {
-                            //Instantiate(ammo[2], here.position, Quaternion.Euler(0, 0, 0));
+                            Instantiate(ammo[2], here.position, Quaternion.Euler(0, 0, 0));
                         }
                     }
                     if (rand2 >= 7)
                     {
-                        //Instantiate(PowerUpsP[Random.Range(0, ammo.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                        Instantiate(PowerUpsP[Random.Range(0, ammo.Length)], here.position, Quaternion.Euler(0, 0, 0));
                     }
                 }
                 spawnsc.enemies.Remove(this.transform);
