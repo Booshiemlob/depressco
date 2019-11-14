@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class GameOverScript : MonoBehaviour
         if (pcon1.isDead == true)
         { 
             gameObject.SetActive(true);
+            SceneManager.LoadScene(1);
         }
     }
 

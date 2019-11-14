@@ -27,18 +27,27 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        player = GameObject.FindWithTag("Player").transform;
+       
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
         //This finds the text for the score.
         score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
-        weapon = GameObject.Find("player").GetComponent<Weapons_Systems>();
+        if (GameObject.Find("player") != null)
+        {
+            weapon = GameObject.Find("player").GetComponent<Weapons_Systems>();
+        }
 
     }
 
     void FixedUpdate()
     {
-        rb.AddForce(transform.up * moveSpeed * 2);
-        LookAt();
+        if (GameObject.Find("player") != null)
+        {
+            player = GameObject.FindWithTag("Player").transform;
+            rb.AddForce(transform.up * moveSpeed * 2);
+            LookAt();
+        }
+
+        
     }
 
     void LookAt()
