@@ -202,7 +202,7 @@ public class Weapons_Systems : MonoBehaviour
     {
         if(ammo1 == 0)
         {
-            Primary = 0;
+            //Primary = 0;
         }
     }
 

@@ -9,7 +9,6 @@ public class Player_Control : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject player;
     public float forwardSpeed = 30f;
-    public GameObject[] bullets;
     public GameObject ExplosionBP;
     public Transform here;
     public float life = 1.0f;

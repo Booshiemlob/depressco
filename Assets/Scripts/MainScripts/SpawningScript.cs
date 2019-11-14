@@ -40,7 +40,6 @@ public class SpawningScript : MonoBehaviour
     {
         if (enemyScaling > enemyLimit)
         {
-            Debug.Log("ahh");
             enemyLimit = enemyScaling;
         }
     }
@@ -59,7 +58,6 @@ public class SpawningScript : MonoBehaviour
         enemyScaling = score.scoreOfPlayer;
         Mathf.Round(enemyScaling /= 5);
         enemyScaling=(int)(enemyScaling);
-        Debug.Log(enemyScaling);
         if (enemyScaling <= enemyLimit || enemyScaling != 0)
         {
             return;
