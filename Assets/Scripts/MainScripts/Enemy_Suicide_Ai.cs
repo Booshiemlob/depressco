@@ -14,6 +14,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     public float rand;
     public SpawningScript spawnsc;
     public ScoreScript score;
+    public Weapons_Systems weapon;
 
     public bool dead = false;
 
@@ -26,6 +27,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
         //This finds the text for the score.
         score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
+        weapon = GameObject.Find("player").GetComponent<Weapons_Systems>();
 
     }
 
@@ -58,9 +60,16 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 dead = true;
                 //Random chance to spawn a random weapon power up.
                 rand = Random.Range(0f, 1f);
-                if (rand >= 0f)
+                if (weapon.Primary == 0)
                 {
-                    Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
+                    if (rand >= 0f)
+                    {
+                        Instantiate(PowerUps[Random.Range(0, PowerUps.Length)], here.position, here.rotation);
+                    }
+                }
+                if (weapon.Primary != 0)
+                {
+                    weapon.ammo1 += 10;
                 }
                 //This adds 1 to the score
                 score.UpScore();
