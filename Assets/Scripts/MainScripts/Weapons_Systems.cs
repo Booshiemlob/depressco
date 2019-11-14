@@ -48,6 +48,7 @@ public class Weapons_Systems : MonoBehaviour
     public float MineCooldown;
     public int MineCount;
     public int mineCountMax;
+    public int ammo1 = 0;
 
     [Space(20)]
     public GameObject[] enemy;
@@ -192,6 +193,14 @@ public class Weapons_Systems : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if(ammo1 == 0)
+        {
+            Primary = 0;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
         
@@ -234,7 +243,7 @@ public class Weapons_Systems : MonoBehaviour
     //Tri Shooting
     void ShootTriGun()
     {
-        if (PrimaryCooldown <= 0)
+        if (PrimaryCooldown <= 0 && ammo1 != 0)
         {
             Instantiate(Bullet, firePoint.position, firePoint.rotation);
             Instantiate(Bullet, firePoint1.position, firePoint1.rotation);
