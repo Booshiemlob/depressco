@@ -333,40 +333,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7361675064293495546, guid: 01fd1f186cfd08f47ab805f158c87492,
-        type: 3}
-      propertyPath: immortal
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7361675064293495543, guid: 01fd1f186cfd08f47ab805f158c87492,
-        type: 3}
-      propertyPath: WeaponCheat
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7361675064293495543, guid: 01fd1f186cfd08f47ab805f158c87492,
-        type: 3}
-      propertyPath: Bullet
-      value: 
-      objectReference: {fileID: 4403096413360320228, guid: f10db55c294bfc0438db4b7da7f99275,
-        type: 3}
-    - target: {fileID: 7361675064293495543, guid: 01fd1f186cfd08f47ab805f158c87492,
-        type: 3}
-      propertyPath: MissilePrefab
-      value: 
-      objectReference: {fileID: 4707067782843089880, guid: b8eb6cc583877b24a929d673cd313a23,
-        type: 3}
-    - target: {fileID: 7361675064293495543, guid: 01fd1f186cfd08f47ab805f158c87492,
-        type: 3}
-      propertyPath: MinePrefab
-      value: 
-      objectReference: {fileID: 6756076799493448043, guid: 8d4f4ae36e0e6a942b732b4b64cfaedb,
-        type: 3}
-    - target: {fileID: 7361675064293495543, guid: 01fd1f186cfd08f47ab805f158c87492,
-        type: 3}
-      propertyPath: LaserPrefab
-      value: 
-      objectReference: {fileID: 1599234077464022149, guid: ceab6066bf49ddf4aac9de39dc16ee25,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01fd1f186cfd08f47ab805f158c87492, type: 3}
 --- !u!1 &323447785
@@ -1340,10 +1306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2c390306239ca4a840490a1ce5b788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Backgrounds:
-  - {fileID: 0}
-  - {fileID: 0}
   Smoothing: 0.0000001
+  spawner: {fileID: 0}
 --- !u!4 &1900900253
 Transform:
   m_ObjectHideFlags: 0
@@ -1445,5 +1409,11 @@ PrefabInstance:
       propertyPath: Backgrounds.Array.data[2]
       value: 
       objectReference: {fileID: 1678891697}
+    - target: {fileID: 4333016130736792060, guid: dc3d6e051015bc24a8f5d7c47d3dbb37,
+        type: 3}
+      propertyPath: enemy.Array.data[1]
+      value: 
+      objectReference: {fileID: 3452740695778656240, guid: 8bc5ddb13d53f2240a40deb412e49274,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc3d6e051015bc24a8f5d7c47d3dbb37, type: 3}
