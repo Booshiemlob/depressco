@@ -49,11 +49,11 @@ public class Weapons_Systems : MonoBehaviour
     public int MineCount;
     public int mineCountMax;
     //Primary ammo
-    public int ammo1 = 0;
+    public int ammo1;
     //Secondary ammo
-    public int ammo2 = 0;
+    public int ammo2;
     //Mine ammo
-    public int ammo3 = 0;
+    public int ammo3;
 
     [Space(20)]
     public GameObject[] enemy;
@@ -202,7 +202,11 @@ public class Weapons_Systems : MonoBehaviour
     {
         if(ammo1 == 0)
         {
-            //Primary = 0;
+            Primary = 0;
+        }
+        if(ammo2 == 0)
+        {
+            Secondary = 0;
         }
     }
 
@@ -212,26 +216,62 @@ public class Weapons_Systems : MonoBehaviour
         //Changes your primary/secondary weapon based on the power up the player picked up.
         if (hitInfo.CompareTag("Weapon1"))
         {
+            Debug.Log("1");
+            ammo1 += 10;
             Primary = 1;
+ 
         }
         if (hitInfo.CompareTag("Weapon2"))
         {
+            Debug.Log("2");
+            ammo1 += 10;
             Primary = 2;
         }
+
         if (hitInfo.CompareTag("Weapon3"))
         {
-            Primary = 3;
-        }
+            Debug.Log("3");
+            ammo2 += 5;
+            Secondary = 1;
 
+        }
         if (hitInfo.CompareTag("Weapon4"))
         {
-            Secondary = 1;
+            Debug.Log("4");
+            ammo2 += 5;
+            Secondary = 2;
         }
         if (hitInfo.CompareTag("Weapon5"))
         {
-            Secondary = 2;
+            Debug.Log("5");
+            Ultimate = 1;
         }
-        
+        if (hitInfo.CompareTag("Weapon6"))
+        {
+            Debug.Log("6");
+            Ultimate = 2;
+        }
+        if (hitInfo.CompareTag("Weapon7"))
+        {
+            Debug.Log("7");
+            Ultimate = 3;
+        }
+        if (hitInfo.CompareTag("ammo1"))
+        {
+            Debug.Log("8");
+            ammo1 += 10;
+        }
+        if (hitInfo.CompareTag("ammo2"))
+        {
+            Debug.Log("9");
+            ammo2 += 5;
+        }
+        if (hitInfo.CompareTag("ammo3"))
+        {
+            Debug.Log("10");
+            ammo3 += 1;
+        }
+
 
     }
     #region primary weapons
@@ -254,6 +294,7 @@ public class Weapons_Systems : MonoBehaviour
             Instantiate(Bullet, firePoint1.position, firePoint1.rotation);
             Instantiate(Bullet, firePoint2.position, firePoint2.rotation);
             PrimaryCooldown = TrippleShotCooldown;
+            ammo1--;
         }
     }
 
@@ -264,6 +305,7 @@ public class Weapons_Systems : MonoBehaviour
         {
             Instantiate(EnergyPulse, firePoint.position, firePoint.rotation);
             PrimaryCooldown = EnergyPulseCooldown;
+            ammo1--;
         }
     }
     #endregion
@@ -276,6 +318,7 @@ public class Weapons_Systems : MonoBehaviour
         {
             Instantiate(MissilePrefab, firePoint.position, firePoint.rotation);
             SecondaryCooldown = MissileCooldown;
+            ammo2--;
         }
     }
 
@@ -287,6 +330,7 @@ public class Weapons_Systems : MonoBehaviour
             GameObject Laser = Instantiate(LaserPrefab, firePoint.position, firePoint.rotation);
             Laser.transform.parent = this.transform;
             SecondaryCooldown = LaserCooldown;
+            ammo2--;
         }
     }
 

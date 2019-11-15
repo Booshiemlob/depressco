@@ -123,6 +123,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
                     {
                         if (weapon.Primary == 0)
                         {
+                            //Debug.Log("1");
                             Instantiate(PowerUpsP[Random.Range(0, PowerUpsP.Length)], here.position, Quaternion.Euler(0, 0, 0));
                         }
                         else
@@ -131,15 +132,18 @@ public class Basic_Enemy_Ai : MonoBehaviour
                             {
                                 if (weapon.Primary == 1)
                                 {
+                                    //Debug.Log("2");
                                     Instantiate(PowerUpsP[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                                 else
                                 {
+                                    //Debug.Log("3");
                                     Instantiate(PowerUpsP[0], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                             }
                             else
                             {
+                                //Debug.Log("4");
                                 Instantiate(ammo[0], here.position, Quaternion.Euler(0, 0, 0));
                             }
                         }
@@ -149,6 +153,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
                     {
                         if (weapon.Secondary == 0)
                         {
+                            //Debug.Log("5");
                             Instantiate(PowerUpsP[Random.Range(0, PowerUpsS.Length)], here.position, Quaternion.Euler(0, 0, 0));
                         }
                         else
@@ -157,15 +162,18 @@ public class Basic_Enemy_Ai : MonoBehaviour
                             {
                                 if (weapon.Secondary == 1)
                                 {
+                                    //Debug.Log("6");
                                     Instantiate(PowerUpsS[0], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                                 else
                                 {
+                                    //Debug.Log("7");
                                     Instantiate(PowerUpsS[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                             }
                             else
                             {
+                                //Debug.Log("8");
                                 Instantiate(ammo[1], here.position, Quaternion.Euler(0, 0, 0));
                             }
                         }
@@ -174,15 +182,18 @@ public class Basic_Enemy_Ai : MonoBehaviour
                     {
                         if (weapon.Ultimate == 0)
                         {
+                            //Debug.Log("9");
                             Instantiate(PowerUpsP[Random.Range(0, PowerUpsU.Length)], here.position, Quaternion.Euler(0, 0, 0));
                         }
                         else
                         {
+                            //Debug.Log("10");
                             Instantiate(ammo[2], here.position, Quaternion.Euler(0, 0, 0));
                         }
                     }
                     if (rand2 >= 7)
                     {
+                        //Debug.Log("11");
                         Instantiate(PowerUpsP[Random.Range(0, ammo.Length)], here.position, Quaternion.Euler(0, 0, 0));
                     }
                 }
