@@ -5,10 +5,10 @@ using UnityEngine;
 public class Enemy_Suicide_Ai : MonoBehaviour
 {
     public GameObject ExplosionBP;
-    public GameObject[] PowerUpsP;
-    public GameObject[] PowerUpsS;
-    public GameObject[] PowerUpsU;
-    public GameObject[] ammo;
+    public List<GameObject> primary = new List<GameObject>();
+    public List<GameObject> secondary = new List<GameObject>();
+    public List<GameObject> ultimate = new List<GameObject>();
+    public List<GameObject> ammo = new List<GameObject>();
     public Transform here;
     public Transform player;
     private Rigidbody2D rb;
@@ -46,7 +46,6 @@ public class Enemy_Suicide_Ai : MonoBehaviour
             rb.AddForce(transform.up * moveSpeed * 2);
             LookAt();
         }
-
         
     }
 
@@ -82,7 +81,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                         if (weapon.Primary == 0)
                         {
                             Debug.Log("Primary 1");
-                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsP.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                            Instantiate(primary[Random.Range(0, primary.Count)], here.position, Quaternion.Euler(0, 0, 0));
                         }
                         else
                         {
@@ -91,12 +90,12 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                                 if (weapon.Primary == 1)
                                 {
                                     Debug.Log("Primary 2");
-                                    Instantiate(PowerUpsP[1], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(primary[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                                 else
                                 {
                                     Debug.Log("Primary 3");
-                                    Instantiate(PowerUpsP[0], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(primary[0], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                             }
                             else
@@ -112,7 +111,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                         if (weapon.Secondary == 0)
                         {
                             Debug.Log("Secondary 1");
-                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsS.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                            Instantiate(secondary[Random.Range(0, secondary.Count)], here.position, Quaternion.Euler(0, 0, 0));
                         }
                         else
                         {
@@ -121,12 +120,12 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                                 if (weapon.Secondary == 1)
                                 {
                                     Debug.Log("Secondary 2");
-                                    Instantiate(PowerUpsS[0], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(secondary[0], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                                 else
                                 {
                                     Debug.Log("Secondary 3");
-                                    Instantiate(PowerUpsS[1], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(secondary[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                             }
                             else
@@ -141,14 +140,14 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                         if (weapon.Ultimate == 0)
                         {
                             Debug.Log("Ultimate 1");
-                            Instantiate(PowerUpsP[Random.Range(0, PowerUpsU.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                            Instantiate(ultimate[Random.Range(0, ultimate.Count)], here.position, Quaternion.Euler(0, 0, 0));
                         }
                         else
                         {
                             if (weapon.Ultimate == 1)
                             {
                                 Debug.Log("Ultimate 2");
-                                Instantiate(PowerUpsP[Random.Range(1, PowerUpsU.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                                Instantiate(ultimate[Random.Range(1, ultimate.Count)], here.position, Quaternion.Euler(0, 0, 0));
                             }
                             if (weapon.Ultimate == 2)
                             {
@@ -156,11 +155,11 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                                 rand2 = Random.Range(0, 2);
                                 if (rand2 == 1)
                                 {
-                                    Instantiate(PowerUpsP[0], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(ultimate[0], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                                 else
                                 {
-                                    Instantiate(PowerUpsP[2], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(ultimate[2], here.position, Quaternion.Euler(0, 0, 0));
                                 }
 
                             }
@@ -170,11 +169,11 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                                 rand2 = Random.Range(0, 2);
                                 if (rand2 == 1)
                                 {
-                                    Instantiate(PowerUpsP[0], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(ultimate[0], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                                 else
                                 {
-                                    Instantiate(PowerUpsP[1], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(ultimate[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
 
                             }
@@ -186,7 +185,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                     if (rand2 >= 7)
                     {
                         Debug.Log("ammo");
-                        Instantiate(PowerUpsP[Random.Range(0, ammo.Length)], here.position, Quaternion.Euler(0, 0, 0));
+                        Instantiate(ammo[Random.Range(0, ammo.Count)], here.position, Quaternion.Euler(0, 0, 0));
                     }
                 }
                 spawnsc.enemies.Remove(this.transform);

@@ -121,13 +121,13 @@ MonoBehaviour:
     type: 3}
   projectile: {fileID: 5788387675940245570, guid: ab3d9ba568aa84843915db07e4a078de,
     type: 3}
-  PowerUpsP:
+  primary:
   - {fileID: 8096684498902919021, guid: 8523044e5192df340b1d4d78d6eae36f, type: 3}
   - {fileID: 1718144260792455957, guid: 300ac86d6f1007f4980ff0318ea7b271, type: 3}
-  PowerUpsS:
+  secondary:
   - {fileID: 2885608736095670674, guid: 4565a455859ab7446a72e33d46bd156f, type: 3}
   - {fileID: 3270239697635902891, guid: 0721f92bbcacd0046898e18cc338417b, type: 3}
-  PowerUpsU:
+  ultimate:
   - {fileID: 4278745626437588925, guid: 1a5b0eff846dc6340b930eb484030682, type: 3}
   - {fileID: 616284627349835886, guid: 8ea1ef3fc542e8947ac1ef2aefcb2db6, type: 3}
   - {fileID: 8562042725744782851, guid: 93014791f43f2a14aac5d2e7c7bf4a64, type: 3}
