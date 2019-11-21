@@ -18,6 +18,7 @@ public class Player_Control : MonoBehaviour
     public ScoreScript score2;
     public bool immortal = false;
     public GameObject end_scorer;
+    public WeaponEquip weapEq;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class Player_Control : MonoBehaviour
        rb = GetComponent<Rigidbody2D>();
        score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
        score2 = GameObject.Find("scoretext 2").GetComponent<ScoreScript>();
+       weapEq = GameObject.Find("weapEquip").GetComponent<WeaponEquip>();
     }
 
     // Update is called once per frame

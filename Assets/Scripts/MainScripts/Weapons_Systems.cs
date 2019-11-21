@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Weapons_Systems : MonoBehaviour
 {
+
+
+
     [Header("Fire Points")]
     // Player FirePoints
     public Transform firePoint;
@@ -61,10 +64,12 @@ public class Weapons_Systems : MonoBehaviour
     private GameObject Laser;
 
     public bool WeaponCheat;
+ 
 
     // Update is called once per frame
     void Update()
     {
+
         //developer cheat to quick swap to different weapons to test them out
         if (WeaponCheat == true)
         {
