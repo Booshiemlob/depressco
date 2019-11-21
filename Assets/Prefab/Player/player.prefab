@@ -303,7 +303,7 @@ MonoBehaviour:
   bigtext: {fileID: 8517553420119794205, guid: 9aad0d14c53ced44ea1eb775cb0b867b, type: 3}
   score: {fileID: 3618608464240025860, guid: cd8467729130f5c4ba0f46d12711e4c6, type: 3}
   score2: {fileID: 0}
-  immortal: 1
+  immortal: 0
   end_scorer: {fileID: 0}
 --- !u!114 &7361675064293495543
 MonoBehaviour:

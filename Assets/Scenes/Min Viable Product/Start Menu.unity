@@ -377,14 +377,14 @@ RectTransform:
   m_GameObject: {fileID: 993012241}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.4, z: 1}
+  m_LocalScale: {x: 1.2349999, y: 1.3299999, z: 0.95}
   m_Children: []
   m_Father: {fileID: 1939186721}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 644, y: 301}
+  m_AnchoredPosition: {x: 575, y: 265}
   m_SizeDelta: {x: 48.88, y: 46.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &993012243
@@ -553,7 +553,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'ERROR 404: Press Start to continue'
+  m_Text: 'Mike is an Error
+
+'
 --- !u!222 &1042569963
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -636,7 +638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683453065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.879, y: 11.057, z: 0}
+  m_LocalPosition: {x: -9.409, y: 11.186, z: 0}
   m_LocalScale: {x: 0.42945, y: 0.42945, z: 0.42945}
   m_Children: []
   m_Father: {fileID: 0}
@@ -678,7 +680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.48200002, y: 0.27772847}
   m_AnchorMax: {x: 0.5433201, y: 0.30800003}
-  m_AnchoredPosition: {x: 41, y: 260}
+  m_AnchoredPosition: {x: 41, y: 228}
   m_SizeDelta: {x: -69.31, y: -18.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1869714775
