@@ -46,22 +46,35 @@ public class SpawningScript : MonoBehaviour
 
     void spawnEnemies()
     {
-        randEnemy = Random.Range(0, 2);
+        randEnemy = Random.Range(0, 11);
         randSpawn = Random.Range(0, spawner.Length);
-        GameObject Clone = (GameObject)Instantiate(enemy[randEnemy], spawner[randSpawn].position, spawner[randSpawn].rotation);
-        enemies.Add(Clone.GetComponent<Transform>());
+        if(randEnemy < 8)
+        {
+            GameObject Clone = (GameObject)Instantiate(enemy[0], spawner[randSpawn].position, spawner[randSpawn].rotation);
+            enemies.Add(Clone.GetComponent<Transform>());
+        }
+        else
+        {
+            GameObject Clone = (GameObject)Instantiate(enemy[1], spawner[randSpawn].position, spawner[randSpawn].rotation);
+            enemies.Add(Clone.GetComponent<Transform>());
+        }
         enemyCount++;
     }
 
     void difficultyCurve()
     {
         enemyScaling = score.scoreOfPlayer;
-        Mathf.Round(enemyScaling /= 5);
-        enemyScaling=(int)(enemyScaling);
-        if (enemyScaling <= enemyLimit || enemyScaling != 0)
+        if(enemyCount < 4)
         {
-            return;
+            Mathf.Round(enemyScaling /= 5);
+            enemyScaling = (int)(enemyScaling);
         }
+        else
+        {
+            Mathf.Round(enemyScaling /= 10);
+            enemyScaling = (int)(enemyScaling);
+        }
+
 
 
     }
