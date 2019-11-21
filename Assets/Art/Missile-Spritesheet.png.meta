@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -116,10 +116,10 @@ TextureImporter:
       name: Missile-Spritesheet_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 7
-        width: 73
-        height: 18
+        x: 0
+        y: 0
+        width: 128
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,7 +127,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6571bac34d9bf6c4ab36051d60b5b3b5
+      spriteID: aec599ddf38ebea44a48accd0c9a9585
       internalID: -1324109601339721673
       vertices: []
       indices: 
@@ -137,10 +137,10 @@ TextureImporter:
       name: Missile-Spritesheet_1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 7
-        width: 81
-        height: 18
+        x: 128
+        y: 0
+        width: 128
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,7 +148,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67ac69a29dcbee54da72504cbe04eab7
+      spriteID: e630150e291427e4b9a5130e1fd7a2db
       internalID: -6987280751425222641
       vertices: []
       indices: 
@@ -158,10 +158,10 @@ TextureImporter:
       name: Missile-Spritesheet_2
       rect:
         serializedVersion: 2
-        x: 276
-        y: 7
-        width: 89
-        height: 18
+        x: 256
+        y: 0
+        width: 128
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,7 +169,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14a2ac0b13ada73428f715b50c241972
+      spriteID: d21b9a6e7949b8248b5a822c9f580ba8
       internalID: -2179958273968276976
       vertices: []
       indices: 
@@ -179,10 +179,10 @@ TextureImporter:
       name: Missile-Spritesheet_3
       rect:
         serializedVersion: 2
-        x: 423
-        y: 7
-        width: 70
-        height: 18
+        x: 384
+        y: 0
+        width: 128
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,7 +190,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7cfa197c8694c341ad9a21d742464bf
+      spriteID: d84198c667c664a4185a048e4caead18
       internalID: -7700261964137109431
       vertices: []
       indices: 
@@ -200,10 +200,10 @@ TextureImporter:
       name: Missile-Spritesheet_4
       rect:
         serializedVersion: 2
-        x: 554
-        y: 7
-        width: 67
-        height: 18
+        x: 512
+        y: 0
+        width: 128
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,7 +211,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d30f9398139110c4e95b206f6a36ce46
+      spriteID: fb50aa649a86cd64fbdacb0ccee4ebf6
       internalID: 4881355637632650580
       vertices: []
       indices: 

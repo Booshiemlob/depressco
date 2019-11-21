@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2510490387498040773}
   - component: {fileID: -4047902531521524985}
   - component: {fileID: -111271875871830099}
+  - component: {fileID: 8778681764857818091}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Player Bullets
@@ -169,3 +170,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!111 &8778681764857818091
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510490387498040770}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
