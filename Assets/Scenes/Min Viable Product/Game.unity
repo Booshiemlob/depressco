@@ -335,14 +335,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7361675064293495543, guid: 01fd1f186cfd08f47ab805f158c87492,
         type: 3}
-      propertyPath: WeaponCheat
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7361675064293495546, guid: 01fd1f186cfd08f47ab805f158c87492,
+      propertyPath: Bullet
+      value: 
+      objectReference: {fileID: 4403096413360320228, guid: f10db55c294bfc0438db4b7da7f99275,
         type: 3}
-      propertyPath: immortal
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01fd1f186cfd08f47ab805f158c87492, type: 3}
 --- !u!1 &323447785
@@ -806,7 +802,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Weapon Equipped
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -956,11 +952,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a4debf3cf34d07b48bd53c3c6d235770, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b123e9fffa908f048803cf82e7089345, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1101,7 +1097,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Ammo Placeholder Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
