@@ -48,6 +48,13 @@ public class Enemy_Suicide_Ai : MonoBehaviour
         }
         
     }
+    void LateUpdate()
+    {
+        if (dead == true)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void LookAt()
     {
@@ -69,7 +76,6 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
                 spawnsc.enemies.Remove(this.transform);
                 spawnsc.enemyCount--;
-                dead = true;
                 //Random chance to spawn a random weapon power up.
                 rand = Random.Range(0f, 1f);
                 rand2 = Random.Range(0, 11);
@@ -192,7 +198,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 spawnsc.enemyCount--;
                 //This adds 1 to the score
                 score.UpScore();
-                Destroy(gameObject);
+                dead = true;
             }
         }
     }   

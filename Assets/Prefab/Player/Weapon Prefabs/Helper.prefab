@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782811c6cfe94af41a17aa1b2a4bfdd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4403096413360320228, guid: f10db55c294bfc0438db4b7da7f99275,
+  projectile: {fileID: 2527655259149382110, guid: 54446c30d0430ab40be777419617e7ea,
     type: 3}
   here: {fileID: 1463054180958760254}
   player: {fileID: 0}

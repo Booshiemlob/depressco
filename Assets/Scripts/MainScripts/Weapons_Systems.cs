@@ -274,7 +274,7 @@ public class Weapons_Systems : MonoBehaviour
         if (hitInfo.CompareTag("ammo3"))
         {
             Debug.Log("10");
-            ammo3 += 1;
+            MineCount += 1;
         }
 
 
