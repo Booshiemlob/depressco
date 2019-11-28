@@ -13,7 +13,11 @@ public class Power_Ups : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
     }
 
-    // Update is called once per frame
+
+    private void FixedUpdate()
+    {
+      //  player = GameObject.FindWithTag("Player").transform;
+    }
     void LateUpdate()
     {
         magnet();

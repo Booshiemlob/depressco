@@ -323,12 +323,12 @@ MonoBehaviour:
   firePoint2: {fileID: 7361675063964057345}
   firePoint3: {fileID: 681920243790989864}
   firePoint4: {fileID: 7396397296747482767}
-  Bullet: {fileID: 2366371526046583061, guid: 7205372e70beae54e88744cf5d8cd697, type: 3}
+  Bullet: {fileID: 4403096413360320228, guid: f10db55c294bfc0438db4b7da7f99275, type: 3}
   EnergyPulse: {fileID: 2527655259149382110, guid: 54446c30d0430ab40be777419617e7ea,
     type: 3}
-  MissilePrefab: {fileID: 2510490387498040770, guid: fe72aea7cf3c0b744bd7f99eab051ed6,
+  MissilePrefab: {fileID: 4707067782843089880, guid: b8eb6cc583877b24a929d673cd313a23,
     type: 3}
-  LaserPrefab: {fileID: 3240174180161898552, guid: a86fec83f11783c4593557b683d5298f,
+  LaserPrefab: {fileID: 1599234077464022149, guid: ceab6066bf49ddf4aac9de39dc16ee25,
     type: 3}
   MinePrefab: {fileID: 6756076799493448043, guid: 8d4f4ae36e0e6a942b732b4b64cfaedb,
     type: 3}
@@ -343,19 +343,19 @@ MonoBehaviour:
   Ultimate: 0
   PrimaryCooldown: 0
   SecondaryCooldown: 0
-  SingleShotCooldown: 0.1
-  TrippleShotCooldown: 0.3
-  EnergyPulseCooldown: 0.5
-  MissileCooldown: 3
-  LaserCooldown: 5
-  MineCooldown: 5
+  SingleShotCooldown: 0
+  TrippleShotCooldown: 0
+  EnergyPulseCooldown: 0
+  MissileCooldown: 0
+  LaserCooldown: 0
+  MineCooldown: 0
   MineCount: 0
-  mineCountMax: 3
+  mineCountMax: 0
   ammo1: 0
   ammo2: 0
   ammo3: 0
   enemy: []
-  WeaponCheat: 1
+  WeaponCheat: 0
 --- !u!1 &9057883868705869850
 GameObject:
   m_ObjectHideFlags: 0
