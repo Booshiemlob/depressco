@@ -112,7 +112,7 @@ MonoBehaviour:
   ammo: []
   here: {fileID: 3772217935416829466}
   player: {fileID: 0}
-  moveSpeed: 7
+  moveSpeed: 4.5
   rand: 0
   rand2: 0
   spawnsc: {fileID: 0}

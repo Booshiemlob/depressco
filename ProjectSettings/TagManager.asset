@@ -14,6 +14,11 @@ TagManager:
   - Weapon4
   - Weapon5
   - BackgoundAsset
+  - Weapon7
+  - Weapon6
+  - ammo1
+  - ammo2
+  - ammo3
   layers:
   - Default
   - TransparentFX

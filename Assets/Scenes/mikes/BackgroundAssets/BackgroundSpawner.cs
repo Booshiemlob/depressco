@@ -22,6 +22,8 @@ public class BackgroundSpawner : MonoBehaviour
     public int SpawnCountMedium;
     public int SpawnCountSmall;
 
+    public List<GameObject> Backgrounds = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class BackgroundSpawner : MonoBehaviour
             //create a gameobject then moves it to the random position within the limits
             GameObject BackgroundItem = Instantiate(BackgroundObjectSmall[Random.Range(0, BackgroundObjectSmall.Length)]);
             BackgroundItem.transform.position = new Vector3(Xrange, Yrange, 0);
+            Backgrounds.Add((BackgroundItem).GetComponent<GameObject>());
         }
 
         // Spawns medium objects around the background
@@ -47,6 +50,7 @@ public class BackgroundSpawner : MonoBehaviour
             //create a gameobject then moves it to the random position within the limits
             GameObject BackgroundItem = Instantiate(BackgroundObjectMedium[Random.Range(0, BackgroundObjectMedium.Length)]);
             BackgroundItem.transform.position = new Vector3(Xrange, Yrange, 0);
+            Backgrounds.Add((BackgroundItem).GetComponent < GameObject > ());
         }
 
         // Spawns big objects around the room
@@ -59,7 +63,9 @@ public class BackgroundSpawner : MonoBehaviour
             //create a gameobject then moves it to the random position within the limits
             GameObject BackgroundItem = Instantiate(BackgroundObjectBig[Random.Range(0, BackgroundObjectBig.Length)]);
             BackgroundItem.transform.position = new Vector3(Xrange, Yrange, 0);
+            Backgrounds.Add((BackgroundItem).GetComponent<GameObject>());
         }
+
     }
     //maybe adding a z axis move script to the gameobject for parralax background
 

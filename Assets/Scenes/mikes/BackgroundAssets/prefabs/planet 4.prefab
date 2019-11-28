@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3924617581604665293}
   m_Layer: 8
   m_Name: planet 4
-  m_TagString: Untagged
+  m_TagString: BackgoundAsset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

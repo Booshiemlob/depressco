@@ -295,9 +295,6 @@ MonoBehaviour:
   rb: {fileID: 7361675064293495544}
   player: {fileID: 7361675064293495549}
   forwardSpeed: 20
-  bullets:
-  - {fileID: 2663357206781495304, guid: 30d83111dfa2d55418d7cfb4de0fe682, type: 3}
-  - {fileID: 2663357206781495304, guid: 30d83111dfa2d55418d7cfb4de0fe682, type: 3}
   ExplosionBP: {fileID: 6470858243705071207, guid: 1959437a21a6043429d209258c01564b,
     type: 3}
   here: {fileID: 7361675064293495542}
@@ -305,7 +302,9 @@ MonoBehaviour:
   isDead: 0
   bigtext: {fileID: 8517553420119794205, guid: 9aad0d14c53ced44ea1eb775cb0b867b, type: 3}
   score: {fileID: 3618608464240025860, guid: cd8467729130f5c4ba0f46d12711e4c6, type: 3}
+  score2: {fileID: 0}
   immortal: 0
+  end_scorer: {fileID: 0}
 --- !u!114 &7361675064293495543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,8 +320,8 @@ MonoBehaviour:
   firePoint: {fileID: 7361675065998272253}
   firePoint1: {fileID: 7361675063949485468}
   firePoint2: {fileID: 7361675063964057345}
-  firePoint3: {fileID: 0}
-  firePoint4: {fileID: 0}
+  firePoint3: {fileID: 681920243790989864}
+  firePoint4: {fileID: 7396397296747482767}
   Bullet: {fileID: 2366371526046583061, guid: 7205372e70beae54e88744cf5d8cd697, type: 3}
   EnergyPulse: {fileID: 2527655259149382110, guid: 54446c30d0430ab40be777419617e7ea,
     type: 3}
@@ -330,7 +329,7 @@ MonoBehaviour:
     type: 3}
   LaserPrefab: {fileID: 3240174180161898552, guid: a86fec83f11783c4593557b683d5298f,
     type: 3}
-  MinePrefab: {fileID: 4788124192038983546, guid: b6dca0af1d4255143b4146439626010c,
+  MinePrefab: {fileID: 6756076799493448043, guid: 8d4f4ae36e0e6a942b732b4b64cfaedb,
     type: 3}
   EmpPrefab: {fileID: 9170047391429250851, guid: 1c89136f065c20d47824241a3dce8efe,
     type: 3}
@@ -343,16 +342,19 @@ MonoBehaviour:
   Ultimate: 0
   PrimaryCooldown: 0
   SecondaryCooldown: 0
-  SingleShotCooldown: 0
-  TrippleShotCooldown: 0
-  EnergyPulseCooldown: 0
-  MissileCooldown: 0
-  LaserCooldown: 0
-  MineCooldown: 0
+  SingleShotCooldown: 0.1
+  TrippleShotCooldown: 0.3
+  EnergyPulseCooldown: 0.5
+  MissileCooldown: 3
+  LaserCooldown: 5
+  MineCooldown: 5
   MineCount: 0
-  mineCountMax: 0
+  mineCountMax: 3
+  ammo1: 0
+  ammo2: 0
+  ammo3: 0
   enemy: []
-  WeaponCheat: 0
+  WeaponCheat: 1
 --- !u!1 &9057883868705869850
 GameObject:
   m_ObjectHideFlags: 0
