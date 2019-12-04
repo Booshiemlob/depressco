@@ -10,6 +10,7 @@ public class Power_Ups : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("Dead", 10);
         player = GameObject.FindWithTag("Player").transform;
     }
 
@@ -40,5 +41,9 @@ public class Power_Ups : MonoBehaviour
             speed = speed * Time.deltaTime * 1.5f;
             transform.position = Vector3.MoveTowards(here.position, player.position, speed);
         }
+    }
+    void Dead()
+    {
+        Destroy(gameObject);
     }
 }

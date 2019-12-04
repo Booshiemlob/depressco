@@ -80,6 +80,7 @@ public class Weapons_Systems : MonoBehaviour
                 if (Primary >= 3)
                 {
                     Primary = 0;
+                    ammo1 = 1000;
                 }
             }
 
@@ -90,6 +91,7 @@ public class Weapons_Systems : MonoBehaviour
                 if(Secondary >= 4)
                 {
                     Secondary = 0;
+                    ammo2 = 1000;
                 }
             }
             if (Input.GetKeyDown(KeyCode.R))
@@ -148,13 +150,9 @@ public class Weapons_Systems : MonoBehaviour
              
             }
         }
-        if (Secondary == 3)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if (Input.GetButtonDown("Fire2"))
-            {
-                MineShoot();
-                
-            }
+            MineShoot();   
         }
         #endregion
 
