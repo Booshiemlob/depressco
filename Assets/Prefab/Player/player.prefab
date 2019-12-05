@@ -323,14 +323,14 @@ MonoBehaviour:
   firePoint2: {fileID: 7361675063964057345}
   firePoint3: {fileID: 681920243790989864}
   firePoint4: {fileID: 7396397296747482767}
-  Bullet: {fileID: 4403096413360320228, guid: f10db55c294bfc0438db4b7da7f99275, type: 3}
+  Bullet: {fileID: 7732618380945661680, guid: 79a60c51e4d5da741b91b259e374609a, type: 3}
   EnergyPulse: {fileID: 2527655259149382110, guid: 54446c30d0430ab40be777419617e7ea,
     type: 3}
-  MissilePrefab: {fileID: 4707067782843089880, guid: b8eb6cc583877b24a929d673cd313a23,
+  MissilePrefab: {fileID: 7441977981564077827, guid: d3f30ed93d7dc8a4886f0caaecb6e342,
     type: 3}
-  LaserPrefab: {fileID: 1599234077464022149, guid: ceab6066bf49ddf4aac9de39dc16ee25,
+  LaserPrefab: {fileID: 8160721408411056027, guid: 108aa240fd574c24c9fff0110785cf19,
     type: 3}
-  MinePrefab: {fileID: 6756076799493448043, guid: 8d4f4ae36e0e6a942b732b4b64cfaedb,
+  MinePrefab: {fileID: 8826349479247842923, guid: c446acd48d35bb34499a4baa96d27149,
     type: 3}
   EmpPrefab: {fileID: 9170047391429250851, guid: 1c89136f065c20d47824241a3dce8efe,
     type: 3}
