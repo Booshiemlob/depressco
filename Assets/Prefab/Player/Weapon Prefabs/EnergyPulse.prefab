@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionSize: 0.1
-  ExplosionSizeMax: 1
+  ExplosionSizeMax: 0.8
 --- !u!114 &-6866908592992846767
 MonoBehaviour:
   m_ObjectHideFlags: 0

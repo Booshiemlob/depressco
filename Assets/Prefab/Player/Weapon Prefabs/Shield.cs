@@ -9,7 +9,7 @@ public class Shield : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("Discharge", 15, 1);
     }
 
     // Update is called once per frame
@@ -27,5 +27,14 @@ public class Shield : MonoBehaviour
         {
             ShieldHealth -= 1;
         }
+        if (hitInfo.CompareTag("Enemy"))
+        {
+            ShieldHealth -= 5;
+        }
+    }
+
+   void Discharge()
+    {
+        ShieldHealth -= 1;
     }
 }

@@ -27,7 +27,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-       
+
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
         //This finds the text for the score.
         score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
@@ -46,7 +46,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
             rb.AddForce(transform.up * moveSpeed * 2);
             LookAt();
         }
-        
+
     }
     void LateUpdate()
     {
@@ -67,7 +67,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Player") || hitInfo.CompareTag("Player Bullets"))
+        if (hitInfo.CompareTag("Player Bullets"))
         {
 
             if (dead == false)
@@ -79,8 +79,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 //Random chance to spawn a random weapon power up.
                 rand = Random.Range(0f, 1f);
                 rand2 = Random.Range(0, 11);
-                Debug.Log("rand2 " + rand2);
-                if (rand >= 0.6f)
+                if (rand >= 0.75f)
                 {
                     if (rand2 <= 3)
                     {
@@ -201,5 +200,18 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 dead = true;
             }
         }
-    }   
+        if (hitInfo.CompareTag("Player"))
+        {
+            if (dead == false)
+            {
+                GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+                spawnsc.enemies.Remove(this.transform);
+                spawnsc.enemyCount--;
+
+                //This adds 1 to the score
+                score.UpScore();
+                dead = true;
+            }
+        }
+    }
 }

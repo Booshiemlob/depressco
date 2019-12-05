@@ -132,7 +132,7 @@ Shooting();
                 //Random chance to spawn a random weapon power up.
                 rand = Random.Range(0f, 1f);
                 rand2 = Random.Range(0, 11);
-                if (rand >= 0.6f)
+                if (rand >= 0.75f)
                 {
                     if (rand2 <= 3)
                     {
