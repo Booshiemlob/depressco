@@ -5,19 +5,12 @@ using UnityEngine;
 public class Power_Ups : MonoBehaviour
 {
     public Transform player;
-    public Transform here;
 
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Dead", 10);
+        Invoke("Dead", 8);
         player = GameObject.FindWithTag("Player").transform;
-    }
-
-
-    private void FixedUpdate()
-    {
-      //  player = GameObject.FindWithTag("Player").transform;
     }
     void LateUpdate()
     {
@@ -34,12 +27,12 @@ public class Power_Ups : MonoBehaviour
     }
     void magnet()
     {
-        float dis = Vector2.Distance(player.position, here.position);
+        float dis = Vector2.Distance(player.position, this.transform.position);
         if (dis < 5)
         {
             float speed = 5 - dis;
             speed = speed * Time.deltaTime * 1.5f;
-            transform.position = Vector3.MoveTowards(here.position, player.position, speed);
+            transform.position = Vector3.MoveTowards(this.transform.position, player.position, speed);
         }
     }
     void Dead()
