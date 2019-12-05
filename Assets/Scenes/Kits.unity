@@ -661,6 +661,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2990b142c5372434ebda2b46d00748da, type: 3}
+--- !u!1001 &553036286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5104969829419064024, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_Name
+      value: Tri Shot Spritesheet_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434698407567263240, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -82.655
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434698407567263240, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -54.02749
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434698407567263240, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434698407567263240, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434698407567263240, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434698407567263240, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434698407567263240, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434698407567263240, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434698407567263240, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434698407567263240, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434698407567263240, guid: f186aa0508977ad44820a0e54c2d6f24,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f186aa0508977ad44820a0e54c2d6f24, type: 3}
 --- !u!1 &752568391
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,7 +870,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Weapon Equipped
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -994,7 +1063,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Ammo Placeholder Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
