@@ -150,7 +150,7 @@ MonoBehaviour:
   - {fileID: 113858288010285458, guid: 4031436e986de0f4fb0f8de0699dc5e1, type: 3}
   here: {fileID: 4482247492228006232}
   player: {fileID: 0}
-  moveSpeed: 4.3
+  moveSpeed: 7
   rand: 0
   rand2: 0
   spawnsc: {fileID: 0}
