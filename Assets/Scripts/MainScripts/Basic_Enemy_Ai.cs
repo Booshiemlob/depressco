@@ -57,7 +57,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
     {
         if (GameObject.FindWithTag("Player") != null)
         {
-Shooting();
+            Shooting();
         }
             
 
