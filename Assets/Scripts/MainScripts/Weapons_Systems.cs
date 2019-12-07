@@ -100,25 +100,25 @@ public class Weapons_Systems : MonoBehaviour
         //developer cheat to quick swap to different weapons to test them out
         if (WeaponCheat == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 Primary += 1;
                 PrimaryCooldown = 0;
+                ammo1 = 1000;
                 if (Primary >= 3)
                 {
                     Primary = 0;
-                    ammo1 = 1000;
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Secondary += 1;
                 SecondaryCooldown = 0;
-                if(Secondary >= 4)
+                ammo2 = 1000;
+                if (Secondary >= 4)
                 {
                     Secondary = 0;
-                    ammo2 = 1000;
                 }
             }
             if (Input.GetKeyDown(KeyCode.R))
