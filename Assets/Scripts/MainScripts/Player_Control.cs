@@ -28,7 +28,6 @@ public class Player_Control : MonoBehaviour
        rb = GetComponent<Rigidbody2D>();
        score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
        score2 = GameObject.Find("scoretext 2").GetComponent<ScoreScript>();
-       weapEq = GameObject.Find("weapEquip").GetComponent<WeaponEquip>();
     }
 
     // Update is called once per frame
