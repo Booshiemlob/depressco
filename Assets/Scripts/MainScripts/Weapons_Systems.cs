@@ -18,6 +18,7 @@ public class Weapons_Systems : MonoBehaviour
     [Header("Weapon Prefabs")]
     //primary Weapons
     public GameObject Bullet;
+    public GameObject TripleShot;
     public GameObject EnergyPulse;
 
     //secondary Weapons
@@ -293,9 +294,9 @@ public class Weapons_Systems : MonoBehaviour
     {
         if (PrimaryCooldown <= 0 && ammo1 != 0)
         {
-            Instantiate(Bullet, firePoint.position, firePoint.rotation);
-            Instantiate(Bullet, firePoint1.position, firePoint1.rotation);
-            Instantiate(Bullet, firePoint2.position, firePoint2.rotation);
+            Instantiate(TripleShot, firePoint.position, firePoint.rotation);
+            Instantiate(TripleShot, firePoint1.position, firePoint1.rotation);
+            Instantiate(TripleShot, firePoint2.position, firePoint2.rotation);
             PrimaryCooldown = TrippleShotCooldown;
             ammo1--;
         }

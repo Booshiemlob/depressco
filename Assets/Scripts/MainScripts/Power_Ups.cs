@@ -28,10 +28,10 @@ public class Power_Ups : MonoBehaviour
     void magnet()
     {
         float dis = Vector2.Distance(player.position, this.transform.position);
-        if (dis < 5)
+        if (dis < 20)
         {
-            float speed = 5 - dis;
-            speed = speed * Time.deltaTime * 1.5f;
+            float speed = 20 - dis;
+            speed = speed * Time.deltaTime * 2f;
             transform.position = Vector3.MoveTowards(this.transform.position, player.position, speed);
         }
     }
