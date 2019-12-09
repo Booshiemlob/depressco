@@ -7,6 +7,7 @@ public class CoolDownUI : MonoBehaviour
 {
     public Transform PrimaryUI;
     public Transform SecondaryUI;
+    public Transform HealthBarUI;
     public GameObject PrimaryAmmo;
     public GameObject SecondaryAmmo;
     public GameObject MineCount;
@@ -32,6 +33,10 @@ public class CoolDownUI : MonoBehaviour
     public void SecondarySetSize(float sizeNormalized)
     {
         SecondaryUI.localScale = new Vector3(sizeNormalized, 1f);
+    }
+    public void HealthBarSetSize(float sizeNormalized)
+    {
+        HealthBarUI.localScale = new Vector3(sizeNormalized, 1f);
     }
 
 }

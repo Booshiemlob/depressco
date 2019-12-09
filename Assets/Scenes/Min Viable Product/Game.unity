@@ -1155,6 +1155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrimaryUI: {fileID: 2051793387}
   SecondaryUI: {fileID: 1878924788}
+  HealthBarUI: {fileID: 1963050404}
   PrimaryAmmo: {fileID: 679658505}
   SecondaryAmmo: {fileID: 1204068846}
   MineCount: {fileID: 2012517108}
@@ -2105,6 +2106,11 @@ PrefabInstance:
       propertyPath: immortal
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7361675064293495546, guid: 01fd1f186cfd08f47ab805f158c87492,
+        type: 3}
+      propertyPath: coolDownUI
+      value: 
+      objectReference: {fileID: 700649759}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01fd1f186cfd08f47ab805f158c87492, type: 3}
 --- !u!1 &1592031509
