@@ -173,7 +173,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
                         }
                         else
                         {
-                            if (rand2 < 3)
+                            if (rand2 < 6)
                             {
                                 if (weapon.Secondary == 1)
                                 {
