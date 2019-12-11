@@ -97,7 +97,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                                     Debug.Log("Primary 2");
                                     Instantiate(primary[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
-                                else
+                                if (weapon.Primary == 2)
                                 {
                                     Debug.Log("Primary 3");
                                     Instantiate(primary[0], here.position, Quaternion.Euler(0, 0, 0));
@@ -120,17 +120,17 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                         }
                         else
                         {
-                            if (rand2 < 3)
+                            if (rand2 < 6)
                             {
                                 if (weapon.Secondary == 1)
                                 {
                                     Debug.Log("Secondary 2");
-                                    Instantiate(secondary[0], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(secondary[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
-                                else
+                                if (weapon.Secondary == 2)
                                 {
                                     Debug.Log("Secondary 3");
-                                    Instantiate(secondary[1], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(secondary[0], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                             }
                             else
