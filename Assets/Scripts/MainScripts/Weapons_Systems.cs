@@ -355,6 +355,7 @@ public class Weapons_Systems : MonoBehaviour
     {
         if (PrimaryCooldown <= 0)
         {
+            Debug.Log(firePoint);
             Instantiate(Bullet, firePoint.position, firePoint.rotation);
             PrimaryCooldownAmmount = SingleShotCooldown;
             PrimaryCooldown = 1;
