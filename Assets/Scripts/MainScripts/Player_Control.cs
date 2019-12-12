@@ -63,23 +63,23 @@ public class Player_Control : MonoBehaviour
         //Turns the player left
             if (Input.GetKey(KeyCode.A))
         {
-            rb.AddTorque(0.5f);
+            rb.AddTorque(0.5f *Time.deltaTime);
         }
         //turns the player right
         if (Input.GetKey(KeyCode.D))
         {
-            rb.AddTorque(-0.5f);
+            rb.AddTorque(-0.5f * Time.deltaTime);
         }
         //Moves the player forward
         if (Input.GetKey(KeyCode.W))
         {
-            rb.AddForce(transform.up * forwardSpeed);
+            rb.AddForce(transform.up * forwardSpeed * Time.deltaTime);
 
         }
         //Moves the player back
         if (Input.GetKey(KeyCode.S))
         {
-            rb.AddForce(transform.up * -2);
+            rb.AddForce(transform.up * -2 * Time.deltaTime);
         }
 
     }
