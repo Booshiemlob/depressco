@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 7361675064293495542}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &1339939883392314438
 GameObject:
@@ -155,8 +155,8 @@ Transform:
   - {fileID: 7361675065998272253}
   - {fileID: 7361675063949485468}
   - {fileID: 7361675063964057345}
-  - {fileID: 681920243790989864}
   - {fileID: 7396397296747482767}
+  - {fileID: 681920243790989864}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -305,6 +305,7 @@ MonoBehaviour:
   score2: {fileID: 0}
   immortal: 0
   end_scorer: {fileID: 0}
+  weapEq: {fileID: 0}
 --- !u!114 &7361675064293495543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,14 +323,14 @@ MonoBehaviour:
   firePoint2: {fileID: 7361675063964057345}
   firePoint3: {fileID: 681920243790989864}
   firePoint4: {fileID: 7396397296747482767}
-  Bullet: {fileID: 2366371526046583061, guid: 7205372e70beae54e88744cf5d8cd697, type: 3}
+  Bullet: {fileID: 7732618380945661680, guid: 79a60c51e4d5da741b91b259e374609a, type: 3}
   EnergyPulse: {fileID: 2527655259149382110, guid: 54446c30d0430ab40be777419617e7ea,
     type: 3}
-  MissilePrefab: {fileID: 2510490387498040770, guid: fe72aea7cf3c0b744bd7f99eab051ed6,
+  MissilePrefab: {fileID: 7441977981564077827, guid: d3f30ed93d7dc8a4886f0caaecb6e342,
     type: 3}
-  LaserPrefab: {fileID: 3240174180161898552, guid: a86fec83f11783c4593557b683d5298f,
+  LaserPrefab: {fileID: 8160721408411056027, guid: 108aa240fd574c24c9fff0110785cf19,
     type: 3}
-  MinePrefab: {fileID: 6756076799493448043, guid: 8d4f4ae36e0e6a942b732b4b64cfaedb,
+  MinePrefab: {fileID: 8826349479247842923, guid: c446acd48d35bb34499a4baa96d27149,
     type: 3}
   EmpPrefab: {fileID: 9170047391429250851, guid: 1c89136f065c20d47824241a3dce8efe,
     type: 3}
@@ -342,19 +343,19 @@ MonoBehaviour:
   Ultimate: 0
   PrimaryCooldown: 0
   SecondaryCooldown: 0
-  SingleShotCooldown: 0.1
-  TrippleShotCooldown: 0.3
-  EnergyPulseCooldown: 0.5
-  MissileCooldown: 3
-  LaserCooldown: 5
-  MineCooldown: 5
+  SingleShotCooldown: 0
+  TrippleShotCooldown: 0
+  EnergyPulseCooldown: 0
+  MissileCooldown: 0
+  LaserCooldown: 0
+  MineCooldown: 0
   MineCount: 0
-  mineCountMax: 3
+  mineCountMax: 0
   ammo1: 0
   ammo2: 0
   ammo3: 0
   enemy: []
-  WeaponCheat: 1
+  WeaponCheat: 0
 --- !u!1 &9057883868705869850
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,5 +384,5 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 7361675064293495542}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}

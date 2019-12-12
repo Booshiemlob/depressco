@@ -5,6 +5,17 @@ using UnityEngine;
 public class Weapons_Systems : MonoBehaviour
 {
 
+    public CoolDownUI coolDownUI;
+    [Header("UI ICons")]
+    //UI Icons
+    public GameObject primary1UI;
+    public GameObject primary2UI;
+    public GameObject primary3UI;
+    public GameObject Secondary1UI;
+    public GameObject Secondary2UI;
+    public GameObject Ultimate1UI;
+    public GameObject Ultimate2UI;
+    public GameObject Ultimate3UI;
 
 
     [Header("Fire Points")]
@@ -18,6 +29,7 @@ public class Weapons_Systems : MonoBehaviour
     [Header("Weapon Prefabs")]
     //primary Weapons
     public GameObject Bullet;
+    public GameObject TripleShot;
     public GameObject EnergyPulse;
 
     //secondary Weapons
@@ -40,6 +52,8 @@ public class Weapons_Systems : MonoBehaviour
     //weapon Cooldowns
     public float PrimaryCooldown = 0;
     public float SecondaryCooldown = 0;
+    public float PrimaryCooldownAmmount = 0;
+    public float SecondaryCooldownAmmount = 0;
 
     [Header("Each weapon cooldown")]
     public float SingleShotCooldown;
@@ -64,7 +78,20 @@ public class Weapons_Systems : MonoBehaviour
     private GameObject Laser;
 
     public bool WeaponCheat;
- 
+
+    private void Start()
+    {
+        primary1UI.SetActive(true);
+        primary2UI.SetActive(false);
+        primary3UI.SetActive(false);
+        Secondary1UI.SetActive(false);
+        Secondary2UI.SetActive(false);
+        Ultimate1UI.SetActive(false);
+        Ultimate2UI.SetActive(false);
+        Ultimate3UI.SetActive(false);
+    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -73,21 +100,23 @@ public class Weapons_Systems : MonoBehaviour
         //developer cheat to quick swap to different weapons to test them out
         if (WeaponCheat == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 Primary += 1;
                 PrimaryCooldown = 0;
+                ammo1 = 1000;
                 if (Primary >= 3)
                 {
                     Primary = 0;
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Secondary += 1;
                 SecondaryCooldown = 0;
-                if(Secondary >= 4)
+                ammo2 = 1000;
+                if (Secondary >= 4)
                 {
                     Secondary = 0;
                 }
@@ -110,6 +139,9 @@ public class Weapons_Systems : MonoBehaviour
                 ShootBullet();
                
             }
+            primary1UI.SetActive(true);
+            primary2UI.SetActive(false);
+            primary3UI.SetActive(false);
 
         }
         if (Primary == 1)
@@ -119,6 +151,9 @@ public class Weapons_Systems : MonoBehaviour
                 ShootTriGun();
             
             }
+            primary1UI.SetActive(false);
+            primary2UI.SetActive(true);
+            primary3UI.SetActive(false);
         }
         if (Primary == 2)
         {
@@ -127,45 +162,60 @@ public class Weapons_Systems : MonoBehaviour
                 ShootEnergyPulse();
        
             }
+            primary1UI.SetActive(false);
+            primary2UI.SetActive(false);
+            primary3UI.SetActive(true);
         }
         #endregion
 
         //seconday weapons
         #region Secondary Weapons
+        if (Secondary == 0)
+        {
+            Secondary1UI.SetActive(false);
+            Secondary2UI.SetActive(false);
+        }
         if (Secondary == 1)
         {
             if (Input.GetButtonDown("Fire2"))
             {
                 ShootMissile();
-          
             }
+            Secondary1UI.SetActive(true);
+            Secondary2UI.SetActive(false);
         }
         if (Secondary == 2)
         {
             if (Input.GetButtonDown("Fire2"))
             {
                 LaserBeamShoot();
-             
             }
+            Secondary1UI.SetActive(false);
+            Secondary2UI.SetActive(true);
         }
-        if (Secondary == 3)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if (Input.GetButtonDown("Fire2"))
-            {
-                MineShoot();
-                
-            }
+            MineShoot();   
         }
         #endregion
 
         //Ultimate Weapons
         #region Ultimate Weapons
+        if(Ultimate == 0)
+        {
+            Ultimate1UI.SetActive(false);
+            Ultimate2UI.SetActive(false);
+            Ultimate3UI.SetActive(false);
+        }
         if (Ultimate == 1)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 EmpBlast();
             }
+            Ultimate1UI.SetActive(true);
+            Ultimate2UI.SetActive(false);
+            Ultimate3UI.SetActive(false);
         }
         if (Ultimate == 2)
         {
@@ -173,6 +223,9 @@ public class Weapons_Systems : MonoBehaviour
             {
                 Shield();
             }
+            Ultimate1UI.SetActive(false);
+            Ultimate2UI.SetActive(true);
+            Ultimate3UI.SetActive(false);
         }
         if (Ultimate == 3)
         {
@@ -180,6 +233,9 @@ public class Weapons_Systems : MonoBehaviour
             {
                 Helper();
             }
+            Ultimate1UI.SetActive(false);
+            Ultimate2UI.SetActive(false);
+            Ultimate3UI.SetActive(true);
         }
         #endregion
 
@@ -187,12 +243,12 @@ public class Weapons_Systems : MonoBehaviour
 
         if(PrimaryCooldown > 0)
         {
-            PrimaryCooldown -= 1 * Time.deltaTime;
+            PrimaryCooldown -= PrimaryCooldownAmmount * Time.deltaTime;
         }
 
         if(SecondaryCooldown > 0)
         {
-            SecondaryCooldown -= 1*Time.deltaTime;
+            SecondaryCooldown -= SecondaryCooldownAmmount*Time.deltaTime;
         }
         if (Secondary == 3 && MineCount < mineCountMax)
         {
@@ -201,6 +257,20 @@ public class Weapons_Systems : MonoBehaviour
                 MineCount += 1;
             }
         }
+
+        if (PrimaryCooldown < 0)
+        {
+            PrimaryCooldown = 0;
+        }
+
+        if (SecondaryCooldown < 0)
+        {
+            SecondaryCooldown = 0;
+        }
+        coolDownUI.PrimarySetSize(PrimaryCooldown);
+        coolDownUI.SecondarySetSize(SecondaryCooldown);
+
+
     }
 
     private void LateUpdate()
@@ -274,7 +344,7 @@ public class Weapons_Systems : MonoBehaviour
         if (hitInfo.CompareTag("ammo3"))
         {
             Debug.Log("10");
-            ammo3 += 1;
+            MineCount += 1;
         }
 
 
@@ -287,7 +357,8 @@ public class Weapons_Systems : MonoBehaviour
         {
             Debug.Log(firePoint);
             Instantiate(Bullet, firePoint.position, firePoint.rotation);
-            PrimaryCooldown = SingleShotCooldown;
+            PrimaryCooldownAmmount = SingleShotCooldown;
+            PrimaryCooldown = 1;
         }
     }
 
@@ -296,10 +367,11 @@ public class Weapons_Systems : MonoBehaviour
     {
         if (PrimaryCooldown <= 0 && ammo1 != 0)
         {
-            Instantiate(Bullet, firePoint.position, firePoint.rotation);
-            Instantiate(Bullet, firePoint1.position, firePoint1.rotation);
-            Instantiate(Bullet, firePoint2.position, firePoint2.rotation);
-            PrimaryCooldown = TrippleShotCooldown;
+            Instantiate(TripleShot, firePoint.position, firePoint.rotation);
+            Instantiate(TripleShot, firePoint1.position, firePoint1.rotation);
+            Instantiate(TripleShot, firePoint2.position, firePoint2.rotation);
+            PrimaryCooldownAmmount = TrippleShotCooldown;
+            PrimaryCooldown = 1;
             ammo1--;
         }
     }
@@ -310,7 +382,8 @@ public class Weapons_Systems : MonoBehaviour
         if (PrimaryCooldown <= 0)
         {
             Instantiate(EnergyPulse, firePoint.position, firePoint.rotation);
-            PrimaryCooldown = EnergyPulseCooldown;
+            PrimaryCooldownAmmount = EnergyPulseCooldown;
+            PrimaryCooldown = 1;
             ammo1--;
         }
     }
@@ -323,7 +396,8 @@ public class Weapons_Systems : MonoBehaviour
         if (SecondaryCooldown <= 0)
         {
             Instantiate(MissilePrefab, firePoint.position, firePoint.rotation);
-            SecondaryCooldown = MissileCooldown;
+            SecondaryCooldownAmmount = MissileCooldown;
+            SecondaryCooldown = 1;
             ammo2--;
         }
     }
@@ -335,7 +409,8 @@ public class Weapons_Systems : MonoBehaviour
         {
             GameObject Laser = Instantiate(LaserPrefab, firePoint.position, firePoint.rotation);
             Laser.transform.parent = this.transform;
-            SecondaryCooldown = LaserCooldown;
+            SecondaryCooldownAmmount = LaserCooldown;
+            SecondaryCooldown = 1;
             ammo2--;
         }
     }
@@ -347,9 +422,6 @@ public class Weapons_Systems : MonoBehaviour
         {
             Instantiate(MinePrefab, firePoint3.position, firePoint3.rotation);
             MineCount -= 1;
-            SecondaryCooldown += MineCooldown; 
-
-
         }
     }
     #endregion

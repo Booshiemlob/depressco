@@ -11,7 +11,7 @@ public class Player_Control : MonoBehaviour
     public float forwardSpeed = 30f;
     public GameObject ExplosionBP;
     public Transform here;
-    public float life = 1.0f;
+    public float life = 1f;
     public bool isDead = false;
     public BigText bigtext;
     public ScoreScript score;
@@ -19,6 +19,7 @@ public class Player_Control : MonoBehaviour
     public bool immortal = false;
     public GameObject end_scorer;
     public WeaponEquip weapEq;
+    public CoolDownUI coolDownUI;
 
     // Start is called before the first frame update
     void Start()
@@ -28,17 +29,24 @@ public class Player_Control : MonoBehaviour
        rb = GetComponent<Rigidbody2D>();
        score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
        score2 = GameObject.Find("scoretext 2").GetComponent<ScoreScript>();
-       weapEq = GameObject.Find("weapEquip").GetComponent<WeaponEquip>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
-        if (life < 1 && isDead == false){
+        if (life < 0 && isDead == false){
             isDead = true;
             lifeCheck();
         }
+        Debug.Log("tree");
+        coolDownUI.HealthBarSetSize(life);
+        life += 0.01f * Time.deltaTime;
+        if (life >= 1)
+        {
+            life = 1;
+        }
+        Debug.Log("Elon");
     }
     void Movement()
     {
@@ -84,7 +92,7 @@ public class Player_Control : MonoBehaviour
             if (hitInfo.CompareTag("Enemy") || hitInfo.CompareTag("Enemy Bullets"))
             {
                 //Destroys the ship and explodes
-                life--;
+                life -= .2f;
             }
         }
     }

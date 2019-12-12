@@ -9,6 +9,8 @@ public class SpawningScript : MonoBehaviour
     public int enemyCount = 0;
     public int randEnemy;
     public int randSpawn;
+    public float spawnTimer;
+    private float spawnTime = 1f;
     public float enemyLimit;
     public float enemyScaling;
     public ScoreScript score;
@@ -18,6 +20,7 @@ public class SpawningScript : MonoBehaviour
     {
         score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
         enemyLimit = 1;
+        spawnTimer = spawnTime;
     }
 
     // Update is called once per frame
@@ -25,16 +28,20 @@ public class SpawningScript : MonoBehaviour
     {
 
         difficultyCurve();
-
+        //If there are not enough enemies spawns a new one after a delay
         if (enemyCount < enemyLimit)
         {
-            spawnEnemies();
+            if (spawnTimer <= 0)
+            {
+                spawnEnemies();
+                spawnTimer = spawnTime;
+            }
+            else
+            {
+                //Timer for how fast it shoots
+                spawnTimer -= Time.deltaTime;
+            }
         }
-        else
-        {
-            return;
-        }
-
     }
     private void FixedUpdate()
     {
@@ -74,8 +81,23 @@ public class SpawningScript : MonoBehaviour
             Mathf.Round(enemyScaling /= 10);
             enemyScaling = (int)(enemyScaling);
         }
-
-
+        //when the player reaches a killcount milestone, decreases the time between enemy spawn
+        if(enemyLimit >= 3)
+        {
+            spawnTime = 0.9f;
+        }
+        if(enemyLimit >= 10)
+        {
+            spawnTime = 0.5f;
+        }
+        if(enemyLimit >= 100)
+        {
+            spawnTime = 0.1f;
+        }
+        if(enemyLimit >= 1000)
+        {
+            spawnTime = 0;
+        }
 
     }
 }

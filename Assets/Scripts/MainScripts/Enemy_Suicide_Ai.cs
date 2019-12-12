@@ -27,7 +27,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-       
+
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
         //This finds the text for the score.
         score = GameObject.Find("scoretext").GetComponent<ScoreScript>();
@@ -46,7 +46,14 @@ public class Enemy_Suicide_Ai : MonoBehaviour
             rb.AddForce(transform.up * moveSpeed * 2);
             LookAt();
         }
-        
+
+    }
+    void LateUpdate()
+    {
+        if (dead == true)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void LookAt()
@@ -60,7 +67,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Player") || hitInfo.CompareTag("Player Bullets"))
+        if (hitInfo.CompareTag("Player Bullets"))
         {
 
             if (dead == false)
@@ -69,12 +76,10 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
                 spawnsc.enemies.Remove(this.transform);
                 spawnsc.enemyCount--;
-                dead = true;
                 //Random chance to spawn a random weapon power up.
                 rand = Random.Range(0f, 1f);
                 rand2 = Random.Range(0, 11);
-                Debug.Log("rand2 " + rand2);
-                if (rand >= 0.6f)
+                if (rand >= 0.75f)
                 {
                     if (rand2 <= 3)
                     {
@@ -92,7 +97,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                                     Debug.Log("Primary 2");
                                     Instantiate(primary[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
-                                else
+                                if (weapon.Primary == 2)
                                 {
                                     Debug.Log("Primary 3");
                                     Instantiate(primary[0], here.position, Quaternion.Euler(0, 0, 0));
@@ -115,17 +120,17 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                         }
                         else
                         {
-                            if (rand2 < 3)
+                            if (rand2 < 6)
                             {
                                 if (weapon.Secondary == 1)
                                 {
                                     Debug.Log("Secondary 2");
-                                    Instantiate(secondary[0], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(secondary[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
-                                else
+                                if (weapon.Secondary == 2)
                                 {
                                     Debug.Log("Secondary 3");
-                                    Instantiate(secondary[1], here.position, Quaternion.Euler(0, 0, 0));
+                                    Instantiate(secondary[0], here.position, Quaternion.Euler(0, 0, 0));
                                 }
                             }
                             else
@@ -192,8 +197,21 @@ public class Enemy_Suicide_Ai : MonoBehaviour
                 spawnsc.enemyCount--;
                 //This adds 1 to the score
                 score.UpScore();
-                Destroy(gameObject);
+                dead = true;
             }
         }
-    }   
+        if (hitInfo.CompareTag("Player"))
+        {
+            if (dead == false)
+            {
+                GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
+                spawnsc.enemies.Remove(this.transform);
+                spawnsc.enemyCount--;
+
+                //This adds 1 to the score
+                score.UpScore();
+                dead = true;
+            }
+        }
+    }
 }

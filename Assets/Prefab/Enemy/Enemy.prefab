@@ -122,23 +122,23 @@ MonoBehaviour:
   projectile: {fileID: 5788387675940245570, guid: ab3d9ba568aa84843915db07e4a078de,
     type: 3}
   primary:
-  - {fileID: 8096684498902919021, guid: 8523044e5192df340b1d4d78d6eae36f, type: 3}
-  - {fileID: 1718144260792455957, guid: 300ac86d6f1007f4980ff0318ea7b271, type: 3}
+  - {fileID: 5104969829419064024, guid: f186aa0508977ad44820a0e54c2d6f24, type: 3}
+  - {fileID: 7407847604122188175, guid: baec072d470506042871a9cb3b6d75c8, type: 3}
   secondary:
-  - {fileID: 2885608736095670674, guid: 4565a455859ab7446a72e33d46bd156f, type: 3}
-  - {fileID: 3270239697635902891, guid: 0721f92bbcacd0046898e18cc338417b, type: 3}
+  - {fileID: 4488304426061005369, guid: 4790fc6a13adbe84ca3310e4768b6591, type: 3}
+  - {fileID: 8414540327989917680, guid: 7c485917c15b3a041b29533c5e63f036, type: 3}
   ultimate:
-  - {fileID: 4278745626437588925, guid: 1a5b0eff846dc6340b930eb484030682, type: 3}
-  - {fileID: 616284627349835886, guid: 8ea1ef3fc542e8947ac1ef2aefcb2db6, type: 3}
-  - {fileID: 8562042725744782851, guid: 93014791f43f2a14aac5d2e7c7bf4a64, type: 3}
+  - {fileID: 3444568046140181158, guid: 9c843233b37410f43acaa37c1a6faef0, type: 3}
+  - {fileID: 7738109180024107370, guid: 04ff6be21651f81479fb6ad1856dc7a4, type: 3}
+  - {fileID: 8881596573537029917, guid: 0a292e5f6e6558a4a9b4f2dcd218ef74, type: 3}
   ammo:
   - {fileID: 2595759078575254986, guid: 6175742a3b454dc4498981782f0ed47a, type: 3}
-  - {fileID: 5595873743784229131, guid: 1f4ed82ad06c45c4ea260851aa087be1, type: 3}
-  - {fileID: 8385790407062467803, guid: 330fcded8bb036e4185ae28ca04f66a1, type: 3}
+  - {fileID: 922019764921209363, guid: d134956daed7b3d4291adaee9077db34, type: 3}
+  - {fileID: 113858288010285458, guid: 4031436e986de0f4fb0f8de0699dc5e1, type: 3}
   here: {fileID: 6977143083809205588}
   player: {fileID: 0}
   firePoint: {fileID: 5139092400052873758}
-  moveSpeed: 4
+  moveSpeed: 6
   stoppingDistance: 4
   retreatDistance: 3
   startTimeBtwShots: 2

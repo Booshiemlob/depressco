@@ -32,8 +32,10 @@ public class Basic_Enemy_Ai : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        if(GameObject.FindWithTag("Player") != null)
+        if (GameObject.FindWithTag("Player") != null)
+        {
             player = GameObject.FindWithTag("Player").transform;
+        }
         timeBtwShots = startTimeBtwShots;
 
         spawnsc = GameObject.Find("Spawner").GetComponent<SpawningScript>();
@@ -44,13 +46,28 @@ public class Basic_Enemy_Ai : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
-        LookAt();
+        if (GameObject.FindWithTag("Player") != null)
+        {
+            Movement();
+            LookAt();
+        }
+
     }
     void Update()
     {
-        Shooting();
+        if (GameObject.FindWithTag("Player") != null)
+        {
+            Shooting();
+        }
+            
 
+    }
+    void LateUpdate()
+    {
+        if(dead == true)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Movement()
@@ -112,11 +129,10 @@ public class Basic_Enemy_Ai : MonoBehaviour
 
                 //Destroys the enemy, spawns an explosion and notifies the enemy spawner.
                 GameObject clone = (GameObject)Instantiate(ExplosionBP, here.position, here.rotation);
-                dead = true;
                 //Random chance to spawn a random weapon power up.
                 rand = Random.Range(0f, 1f);
                 rand2 = Random.Range(0, 11);
-                if (rand >= 0.6f)
+                if (rand >= 0.75f)
                 {
                     if (rand2 <= 3)
                     {
@@ -134,7 +150,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
                                     Debug.Log("Primary 2");
                                     Instantiate(primary[1], here.position, Quaternion.Euler(0, 0, 0));
                                 }
-                                else
+                                if (weapon.Primary == 2)
                                 {
                                     Debug.Log("Primary 3");
                                     Instantiate(primary[0], here.position, Quaternion.Euler(0, 0, 0));
@@ -157,14 +173,14 @@ public class Basic_Enemy_Ai : MonoBehaviour
                         }
                         else
                         {
-                            if (rand2 < 3)
+                            if (rand2 < 6)
                             {
                                 if (weapon.Secondary == 1)
                                 {
                                     Debug.Log("Secondary 2");
                                     Instantiate(secondary[0], here.position, Quaternion.Euler(0, 0, 0));
                                 }
-                                else
+                                if (weapon.Secondary == 2)
                                 {
                                     Debug.Log("Secondary 3");
                                     Instantiate(secondary[1], here.position, Quaternion.Euler(0, 0, 0));
@@ -234,7 +250,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
                 spawnsc.enemyCount--;
                 //This adds 1 point to the score
                 score.UpScore();
-                Destroy(gameObject);
+                dead = true;
             }
         }
 
