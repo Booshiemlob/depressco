@@ -132,8 +132,8 @@ MonoBehaviour:
   - {fileID: 7738109180024107370, guid: 04ff6be21651f81479fb6ad1856dc7a4, type: 3}
   - {fileID: 8881596573537029917, guid: 0a292e5f6e6558a4a9b4f2dcd218ef74, type: 3}
   ammo:
-  - {fileID: 2595759078575254986, guid: 6175742a3b454dc4498981782f0ed47a, type: 3}
   - {fileID: 922019764921209363, guid: d134956daed7b3d4291adaee9077db34, type: 3}
+  - {fileID: 7268505381866636075, guid: dab569bcdbfd434479c4fa0bb9269c16, type: 3}
   - {fileID: 113858288010285458, guid: 4031436e986de0f4fb0f8de0699dc5e1, type: 3}
   here: {fileID: 6977143083809205588}
   player: {fileID: 0}
