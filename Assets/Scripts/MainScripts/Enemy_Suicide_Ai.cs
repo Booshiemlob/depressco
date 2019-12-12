@@ -39,11 +39,12 @@ public class Enemy_Suicide_Ai : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
+    { 
+        //If the player exists in the scene, finds the player and moves towards them.
         if (GameObject.Find("player") != null)
         {
             player = GameObject.FindWithTag("Player").transform;
-            rb.AddForce(transform.up * moveSpeed * 2 *Time.deltaTime);
+            rb.AddForce(transform.up * moveSpeed * 120 *Time.deltaTime);
             LookAt();
         }
 

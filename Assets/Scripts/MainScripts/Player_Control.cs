@@ -63,23 +63,23 @@ public class Player_Control : MonoBehaviour
         //Turns the player left
             if (Input.GetKey(KeyCode.A))
         {
-            rb.AddTorque(0.5f *Time.deltaTime);
+            rb.AddTorque(0.5f *Time.deltaTime *60);
         }
         //turns the player right
         if (Input.GetKey(KeyCode.D))
         {
-            rb.AddTorque(-0.5f * Time.deltaTime);
+            rb.AddTorque(-0.5f * Time.deltaTime*60);
         }
         //Moves the player forward
         if (Input.GetKey(KeyCode.W))
         {
-            rb.AddForce(transform.up * forwardSpeed * Time.deltaTime);
+            rb.AddForce(transform.up * forwardSpeed * Time.deltaTime *60);
 
         }
         //Moves the player back
         if (Input.GetKey(KeyCode.S))
         {
-            rb.AddForce(transform.up * -2 * Time.deltaTime);
+            rb.AddForce(transform.up * -2 * Time.deltaTime *60);
         }
 
     }
@@ -89,9 +89,15 @@ public class Player_Control : MonoBehaviour
         if (immortal == false)
         {
 
+            if(hitInfo.name=="Suicide 1(Clone)")
+            {
+                //Reduces ship health
+                life -= 0.4f;
+                Debug.Log("suicide");
+            }
             if (hitInfo.CompareTag("Enemy") || hitInfo.CompareTag("Enemy Bullets"))
             {
-                //Destroys the ship and explodes
+
                 life -= .2f;
             }
         }

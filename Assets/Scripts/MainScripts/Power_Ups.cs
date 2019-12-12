@@ -27,9 +27,12 @@ public class Power_Ups : MonoBehaviour
     }
     void magnet()
     {
+        //Calculates the distance between the player and the power up, and sets it as dis
         float dis = Vector2.Distance(player.position, this.transform.position);
+        //Determines the whether the player is close enough to be magnitized to them.
         if (dis < 20)
         {
+            //Speed of the magnet effect
             float speed = 20 - dis;
             speed = speed * Time.deltaTime * 2f;
             transform.position = Vector3.MoveTowards(this.transform.position, player.position, speed);
