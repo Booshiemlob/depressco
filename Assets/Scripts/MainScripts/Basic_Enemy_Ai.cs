@@ -76,7 +76,7 @@ public class Basic_Enemy_Ai : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
             {
-                rb.AddForce(transform.up * moveSpeed * 2);
+                rb.AddForce(transform.up * moveSpeed * 2 *Time.deltaTime);
             }
             //If the enemy is too close to the player but not close enough to retreat, the enemy gain nor lose velocity.
             else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && (Vector2.Distance(transform.position, player.position) > retreatDistance))

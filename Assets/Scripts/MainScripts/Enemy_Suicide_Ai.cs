@@ -43,7 +43,7 @@ public class Enemy_Suicide_Ai : MonoBehaviour
         if (GameObject.Find("player") != null)
         {
             player = GameObject.FindWithTag("Player").transform;
-            rb.AddForce(transform.up * moveSpeed * 2);
+            rb.AddForce(transform.up * moveSpeed * 2 *Time.deltaTime);
             LookAt();
         }
 
